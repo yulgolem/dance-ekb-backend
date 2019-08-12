@@ -286,7 +286,7 @@ GEM
     mina-slack (0.1.0)
       mina
       mina-hooks
-    mini_magick (4.9.3)
+    mini_magick (4.9.5)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -555,7 +555,7 @@ DEPENDENCIES
   mina (< 1.0)
   mina-multistage
   mina-slack
-  mini_magick
+  mini_magick (~> 4.9.4)
   mutool
   nokogiri
   oj

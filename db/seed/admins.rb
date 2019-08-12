@@ -22,10 +22,10 @@ class AdminGenerator
   end
 end
 
-AdminGenerator.new("admin@dev.imi", "12345678").create!
+AdminGenerator.new("admin@dev.dance-ekb", "12345678").create!
 AdminGenerator.generate! 3
 
-puts "--------------------------"
-puts "  email: admin@dev.imi   "
-puts "  pass:  12345678         "
-puts "--------------------------"
+puts "-------------------------------"
+puts "  email: admin@dev.dance-ekb   "
+puts "  pass:  12345678              "
+puts "-------------------------------"

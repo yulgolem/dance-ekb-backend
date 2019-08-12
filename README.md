@@ -1,4 +1,4 @@
-## IMI Backend
+## DanceEkb Backend
 
 ### Запуск зависимостей
 

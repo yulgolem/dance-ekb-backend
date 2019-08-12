@@ -5,7 +5,7 @@ services:
   #  restart: always
     build: config/dockerfiles/db
     ports:
-      - "5424:5432"
+      - "5425:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: b68b3eb2977b6bdb714656edd88a74ff

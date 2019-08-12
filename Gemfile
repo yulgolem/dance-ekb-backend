@@ -71,7 +71,7 @@ gem "activerecord_lax_includes", github: "brigade/active-record-lax-includes"
 gem "aws-sdk-s3"
 gem "fastimage" # dependency for store_dimensions plugin
 gem "image_processing"
-gem "mini_magick"
+gem "mini_magick", ' ~> 4.9.4'
 gem "shrine"
 
 gem "whenever", require: false

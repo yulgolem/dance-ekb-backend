@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_111009) do
+ActiveRecord::Schema.define(version: 2019_08_12_060124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,10 +32,51 @@ ActiveRecord::Schema.define(version: 2019_07_25_111009) do
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
-  create_table "articles", force: :cascade do |t|
+  create_table "age_categories", force: :cascade do |t|
     t.string "title"
+    t.bigint "event_date_id"
+    t.index ["event_date_id"], name: "index_age_categories_on_event_date_id"
+  end
+
+  create_table "collectives", force: :cascade do |t|
+    t.string "city"
+    t.string "head_full_name"
+    t.string "title"
+    t.string "level"
+  end
+
+  create_table "event_dates", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.date "event_date"
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_event_dates_on_event_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.integer "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "performances", force: :cascade do |t|
+    t.bigint "collective_id"
+    t.bigint "event_date_id"
+    t.string "age"
+    t.string "genre"
+    t.string "choreograph_full_name"
+    t.integer "participants_count"
+    t.string "title"
+    t.boolean "from_dot", default: false
+    t.integer "priority"
+    t.integer "status"
+    t.index ["collective_id"], name: "index_performances_on_collective_id"
+    t.index ["event_date_id"], name: "index_performances_on_event_date_id"
+  end
+
+  add_foreign_key "age_categories", "event_dates"
+  add_foreign_key "event_dates", "events"
+  add_foreign_key "performances", "collectives"
+  add_foreign_key "performances", "event_dates"
 end
