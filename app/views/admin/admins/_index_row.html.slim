@@ -1,0 +1,4 @@
+= row.column :full_name
+= row.column :email
+= row.column :roles do
+  = record.roles.map { |x| array_i18n(Admin, :roles, x) }.join(', ')

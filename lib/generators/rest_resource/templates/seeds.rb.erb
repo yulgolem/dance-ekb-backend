@@ -1,0 +1,21 @@
+class <%= class_name %>Generator
+  def self.generate!(count)
+    count.times do
+      new.create!
+    end
+  end
+
+  def create!
+    <%= class_name %>.create(
+<% translated_attributes.each do |attr| -%>
+      <%= attr %>_ru: Faker::Lorem.sentence,
+      <%= attr %>_en: Faker::Lorem.sentence,
+<% end -%>
+<% nontranslated_attributes.each do |attr| -%>
+      <%= attr %>: nil,
+<% end -%>
+    )
+  end
+end
+
+<%= class_name %>Generator.generate! 15

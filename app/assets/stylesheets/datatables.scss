@@ -1,0 +1,31 @@
+.select-info { display: block } /* fix select info to not stick with common info  */
+.dataTables_scroll .dataTable { width: 100%; min-width: 100% } /* fix table if width less than content block */
+.ui-icon, .ui-widget-content .ui-icon { background-image: none !important; } /* remove duplicate sort column arrow */
+
+/* override borders as footer was moved right below header */
+.dataTable thead th, .dataTable thead td { border-bottom: none !important; }
+.dataTable tfoot th, .dataTable tfoot td { border-top: none !important; }
+
+.dt-buttons,
+#datatables_filter,
+#datatables_length {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.buttons-selected,
+.buttons-colvis {
+  margin-right: 15px !important;
+}
+
+#datatables_length {
+  margin-left: 15px !important;
+}
+
+// adapt visibility menu to column name lengths
+.dt-button-collection[role="menu"] {
+  width: auto;
+}

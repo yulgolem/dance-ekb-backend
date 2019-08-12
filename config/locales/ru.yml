@@ -1,0 +1,550 @@
+ru:
+  date:
+    formats:
+      email: '%-d %B'
+  mail:
+    user:
+  time:
+    formats:
+      admin_message: '%-d %B в %H:%M'
+      email: '%-d %B в %H:%M'
+      share: '%-d %B в %H:%M'
+
+  attributes:
+    id: ID
+    ip: IP
+    created_at: Время создания
+    updated_at: Время обновления
+    deleted_at: Время удаления
+    uuid: UUID
+
+    access_token: Токен
+    active: Опубликовано
+    address: Адрес
+    all: Все
+    age: Возраст
+    birth_date: Дата рождения
+    birthdate: Дата рождения
+    button_text: Текст для кнопки
+    caption: Подпись к изображению
+    city: Город
+    date: Дата
+    description: Описание
+    email: Email
+    field_of_activity: Сфера деятельности
+    file: Файл для скачивания
+    file_button_text: Название кнопки для скачивания файла
+    file_info: Подпись к файлу
+    first_name: Имя
+    full_name: Имя
+    jwt: JWT
+    icon_title: Иконка
+    image_title: Тайтл к изображению
+    last_name: Фамилия
+    middle_name: Отчество
+    name: Имя
+    notification: Уведомление
+    notifications: Уведомления
+    phone: Телефон
+    photo: Фотография
+    portfolio: Портфолио
+    position: Позиция
+    predefined: Фиксировано
+    published: Опубликовано
+    speciality: Специальность
+    status: Статус
+    subtitle: Подзаголовок
+    synonyms: Синонимы
+    text: Текст
+    title: Название
+    theme_color: Цвет
+    user_id: ID пользователя
+
+    instagram_url: Instagram url
+    facebook_url: Facebook url
+    vk_url: VK url
+    youtube_url: YouTube url
+
+    # for relation columns naming
+    account: Аккаунт
+    accounts: Аккаунты
+    education_facility: Образование
+    education_facilities: Образование
+    email_identity: Почта аккаунта
+    email_identities: Почты аккаунта
+    expert: Эксперт
+    facebook_identity: Facebook аккаунта
+    facebook_identities: Facebook аккаунта
+    formal_assessment: Формальный отбор
+    formal_assessments: Формальный отбор
+    identity: Идентичность аккаунта
+    identities: Идентичности аккаунта
+    meaningful_assessment: Содержательный отбор
+    meaningful_assessments: Содержательный отбор
+    offline_form: Форма заявки на программу
+    offline_forms: Формы заявки на программу
+    profile: Профиль
+    profiles: Профили
+    session: Сессия
+    sessions: Сессии
+    task: Задание
+    tasks: Задания
+    vk_identity: ВКонтакте аккаунта
+    vk_identities: ВКонтакте аккаунта
+    work_experience: Опыт работы
+    work_experiences: Опыт работы
+
+  activerecord:
+    models:
+      account:
+        one: Аккаунт
+        few: Аккаунта
+        many: Аккаунтов
+        countless: Аккаунты
+        accusative: Аккаунт
+      admin:
+        one: Админ
+        few: Админа
+        many: Админов
+        countless: Админы
+        accusative: Админа
+      attached_file:
+        one: Прикрепленный файл
+        few: Прикрепленных файла
+        many: Прикрепленных файлов
+        countless: Прикрепленные файлы
+        accusative: Прикрепленный файл
+      attached_image:
+        one: Прикрепленное изображение
+        few: Прикрепленных изображения
+        many: Прикрепленных изображений
+        countless: Прикрепленные изображения
+        accusative: Прикрепленное изображение
+      email_identity:
+        one: Почта аккаунта
+        few: Почты аккаунта
+        many: Почт аккаунта
+        countless: Почты аккаунта
+        accusative: Почту аккаунта
+      facebook_identity:
+        one: Facebook аккаунта
+        few: Facebook аккаунта
+        many: Facebook аккаунта
+        countless: Facebook аккаунта
+        accusative: Facebook аккаунта
+      education_facility:
+        one: Учебное заведение
+        few: Учебных заведения
+        many: Учебных заведений
+        countless: Учебные заведения
+        accusative: Учебное заведение
+      notification:
+        one: Уведомление
+        few: Уведомления
+        many: Уведомлений
+        countless: Уведомления
+        accusative: Уведомление
+      offline_form:
+        one: Заявка на программу
+        few: Заявки на программу
+        many: Заявок на программу
+        countless: Заявки на программу
+        accusative: Заявку на программу
+      offline/formal_assessment:
+        one: Формальный отбор
+        few: Формального отбора # edited for proper accusative form
+        many: Формальный отбор
+        countless: Формальный отбор
+        accusative: Формальный отбор
+      offline/meaningful_assessment:
+        one: Содержательный отбор
+        few: Содержательного отбора # edited for proper accusative form
+        many: Содержательный отбор
+        countless: Содержательный отбор
+        accusative: Содержательный отбор
+      profile:
+        one: Профиль
+        few: Профиля
+        many: Профилей
+        countless: Профили
+        accusative: Профиль
+      session:
+        one: Сессия аккаунта
+        few: Сессии аккаунта
+        many: Сессий аккаунта
+        countless: Сессии аккаунта
+        accusative: Сессию аккаунтаы
+      task:
+        one: Задание
+        few: Задания
+        many: Заданий
+        countless: Задания
+        accusative: Задание
+      vk_identity:
+        one: ВКонтакте аккаунта
+        few: ВКонтакте аккаунта
+        many: ВКонтакте аккаунта
+        countless: ВКонтакте аккаунта
+        accusative: ВКонтакте аккаунта
+      work_experience:
+        one: Профессиональный опыт
+        few: Профессиональных опыта
+        many: Профессиональный опытов
+        countless: Профессиональный опыт
+        accusative: Профессиональный опыт
+    attributes:
+      accounts:
+        email_newsletters: Новостоная рассылка
+        email_tasks: Новые задания
+        email_events: Мероприятия
+        email_reminders: Напоминание о пропущенных занятиях
+      admin:
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        roles: Роли
+        role_values:
+          admin: Полные права
+          formal_assessment_expert: Эксперт по формальной проверке
+          meaningful_assessment_expert: Эксперт по содержательной проверке
+      attached_file:
+        file_data: Data
+        fileable: Модель
+        position: Позиция
+        type: Вид файла
+      attached_image:
+        image_data: Data
+        imageable: Модель
+        position: Позиция
+        type: Вид изображения
+        types:
+          diploma: Диплом
+          international_passport: Загран паспорт
+          passport: Паспорт
+      education_facility:
+        degree: Тип
+        certificate: Сертификат
+        degrees:
+          additional_professional_education: ДПО
+          higher_education: Высшее образование
+        end_year: Окончание
+        institute_faculty: Факультет
+        institute_speciality: Специальность
+        institute_title: Учебное заведение
+        organization_course: Курс
+        organization_title: Учебная организация или ресурс
+        position: Позиция
+        start_year: Начало обучения
+        student_now: Еще учусь
+      email_identities:
+        encrypted_password: Шифрованный пароль
+        password: Пароль
+        reset_password_token: Токен для сброса пароля
+        last_time_updated: Пароль последний раз обновлялся
+      notification:
+      offline_form:
+        edit_link: Ссылка на заполнение заявки
+        registration_place: Место регистрации
+        country_of_residence: Страна проживания
+        region_of_residence: Регион проживания
+        city_of_residence: Название населенного пункта
+        known_about_from: Как вы узнали про нас
+        social_link: Ссылка на любую вашу соцсеть
+        international_passport_in_process: В процессе получения. Загружу позже
+        submitted: Отправлена
+        portfolio: Портфолио
+        current_step: Текущий шаг в форме заявки
+        max_step: Максимальный шаг в форме заявки
+        passport: Паспорт
+        international_passport: Заграничный паспорт
+        diploma: Диплом о высшем образовании
+        status: Статус заполнения заявки
+        formal_assessment_status: ФО, статус
+        formal_assessment_expert: ФО, эксперт
+        meaningful_assessment_status: СО, статус
+        meaningful_assessment_details: СО, детально
+        statuses:
+          in_progress: Заполняется
+          on_review: Отправлена
+          soft_checked: Прошла формальную проверку
+          hard_checked: Прошла проверку
+          interview: Назначено интервью
+          test_assigned: Назначен тест
+          task_assigned: Назначено задание
+          declined: Отклонена
+          accepted: Принята
+        full_name: ФИО
+        video_interview_url: Ссылка на видеоинтервью
+      profile:
+        speciality: Специальность
+        published_for_hr: Опубликовать анкету для HR
+#        publicly_available: Публичный доступ к профилю
+      offline/formal_assessment:
+        assessment_comment: Причина отклонения # Комментарий к проверке # fow now used only for decline reason comment
+        assessment_result: Результат проверки
+        assessment_results:
+          assigned: на проверке
+          passed: проходит
+          declined: отклонена
+        expert: Эксперт
+        formal_assessment_expert: Эксперт по формальной проверке
+        offline_form: Заявка ID
+      offline/meaningful_assessment:
+        video_interview_result: Оценка видеоинтервью
+        video_interview_assessment: Компетенции оценки по видеоинтервью
+        portfolio_result: Оценка портфолио
+        portfolio_assessment: Компетенции оценки по портфолио
+        recommendation: Рекомендация
+        meaningful_assessment_expert: Эксперт по содержательной проверке
+        offline_form: Заявка ID
+        grade_status_human: Статус проверки
+      task:
+        link: Ссылка на StartExam
+        statuses:
+          appointed: Назначено
+          fulfilling: Выполняется
+          attended: Пройдено
+          verified: Проверено
+        type: Вид
+        types:
+          test: Тест
+          interview: Интервью
+        max_score: Максимальный балл
+        score: Набрано баллов
+      work_experience:
+        position: Позиция
+        company_title: Компания или организация
+        position_title: Позиция
+        start_year_month: Начало работы
+        end_year_month: Окончание
+        up_to_present_time: По настоящий момент
+        recommendation: У меня есть рекомендация
+        recommender_name: Кто вас может порекомендовать
+        recommender_contact: Телефон или почта
+        city_of_work: Название населенного пункта, где вы работаете
+        employer_name: Фамилия и имя
+        employer_email: Email
+        employer_phone: Телефон
+    errors:
+      base:
+        blank: не может быть пустым
+      format:
+      messages:
+        record_invalid: 'Возникли ошибки: %{errors}'
+        restrict_dependent_destroy:
+          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
+          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+      invalid_values: 'Неподдерживаемые значения: %{values}'
+      models:
+        blank: Нужно заполнить
+        imageable_not_found: Не найдена запись, к которой требуется прикрепить изображение
+        fileable_not_found: Не найдена запись, к которой требуется прикрепить файл
+        last_record_deletion_restricted: Нельзя удалить последнюю запись
+        account:
+          attributes:
+            email:
+              _human:
+                taken: Почта уже привязана к другому аккаунту. Если произошла ошибка, напишите нам
+        admin:
+          attributes:
+            roles:
+              invalid_values: 'Неподдерживаемые значения: %{values}'
+              exclusive_admin_and_expert_values: У эксперта не должно быть полных прав
+              exclusive_expert_values: Формальный и содержательный эксперт это две взаимоисключающие роли
+        attached_image:
+          imageable_not_found: Не найдена родительская запись для привязки изображения
+        education_facility:
+          not_found: Запись не найдена
+          attributes:
+            start_year:
+              _human:
+                blank: Пожалуйста, выберите дату
+                invalid: Недопустимое значение
+            end_year:
+              _human:
+                blank: Пожалуйста, выберите дату
+                invalid: Недопустимое значение
+            institute_title:
+              _human:
+                blank: Пожалуйста, заполните поле
+            institute_faculty:
+              _human:
+                blank: Пожалуйста, заполните поле
+            institute_speciality:
+              _human:
+                blank: Пожалуйста, заполните поле
+            organization_title:
+              _human:
+                blank: Пожалуйста, заполните поле
+            organization_course:
+              _human:
+                blank: Пожалуйста, заполните поле
+            certificate_data:
+              _human:
+                blank: Пожалуйста, загрузите файл
+          already_exists:
+        offline_form:
+          already_exists:
+            found_by_email: Заявка с такой почтой уже существует
+          already_submitted:
+            found_by_uuid: Форма заявки уже отправлена, редактирование невозможно
+            found_by_email: С указанной почтой заявка уже подана
+          not_found:
+            by_uuid: Форма не найдена
+            by_email: Форма с такой почтой не найдена
+          attributes:
+            first_name:
+              _human:
+                blank: Пожалуйста, заполните поле
+            middle_name:
+              _human:
+                blank: Пожалуйста, заполните поле
+            last_name:
+              _human:
+                blank: Пожалуйста, заполните поле
+            photo_data:
+              _human:
+                blank: Пожалуйста, загрузите файл
+            birth_date:
+              _human:
+                blank: Пожалуйста, выберите дату
+                invalid: Дата рождения имеет невалидное значение
+                invalid_value: Участником программы может быть человек с 1979 по 2001 года рождения
+                invalid_format: Невалидный формат даты рождения
+            registration_place:
+              _human:
+                blank: Пожалуйста, заполните поле
+            country_of_residence:
+              _human:
+                blank: Пожалуйста, заполните поле
+            region_of_residence:
+              _human:
+                blank: Пожалуйста, выберите значение
+            city_of_residence:
+              _human:
+                blank: Пожалуйста, заполните поле
+            field_of_activity:
+              _human:
+                blank: Пожалуйста, выберите значение
+            known_about_from:
+              _human:
+                blank: Пожалуйста, выберите значение
+            social_link:
+              _human:
+                blank: Пожалуйста, заполните поле
+            portfolio_data:
+              _human:
+                blank: Пожалуйста, загрузите файл
+            email:
+              # in active_record_instance.errors.full_messages strings prepended with attr name,
+              # what is not correct in russian language
+              _human:
+                blank: Пожалуйста, заполните поле
+                invalid: Невалидный формат почты
+              blank: нужно заполнить
+              invalid: имеет невалидный формат
+            phone:
+              _human:
+                blank: Пожалуйства, заполните поле
+                invalid: Невалидный формат телефона
+            education_facilities:
+              _human:
+                blank: Пожалуйста, заполните информацию
+            work_experiences:
+              _human:
+                blank: Пожалуйста, заполните информацию
+            diploma_attached_images:
+              _human:
+                blank: Пожалуйства, загрузите файлы
+            passport_attached_images:
+              _human:
+                blank: Пожалуйства, загрузите файлы
+            international_passport_attached_images:
+              _human:
+                blank: Пожалуйства, загрузите файлы
+        messages:
+          slug_format: "может включать только цифры, a-z, - и _"
+        work_experience:
+          attributes:
+            city_of_work:
+              _human:
+                blank: Пожалуйста, заполните поле
+            company_title:
+              _human:
+                blank: Пожалуйста, заполните поле
+            employer_name:
+              _human:
+                blank: Пожалуйста, заполните поле
+            employer_email:
+              _human:
+                blank: Пожалуйста, заполните поле
+            employer_phone:
+              _human:
+                blank: Пожалуйста, заполните поле
+            position_title:
+              _human:
+                blank: Пожалуйста, заполните поле
+            start_year_month:
+              _human:
+                blank: Пожалуйста, выберите дату
+                invalid: Недопустимое значение
+            end_year_month:
+              _human:
+                blank: Пожалуйста, выберите дату
+                invalid: Недопустимое значение
+            recommender_name:
+              _human:
+                blank: Пожалуйста, заполните поле
+            recommender_contact:
+              _human:
+                blank: Пожалуйста, заполните поле
+        email_identity:
+          blank_password: Пожалуйста, заполните поле
+  datepicker:
+    pformat: 'DD.MM.YYYY (ddd)'
+  interactions:
+  account:
+    email_identity:
+      identity_exists: Почта зарегистрирована
+      identity_exists_sign_in_done: Такой аккаунт есть в нашей базе, вы успешно авторизованы
+      blank: Почта не привязана к профилю
+#      invalid_has_other_email: У вашего аккаунта уже привязан другой адрес электронной почты. Вам нужно авторизоваться и изменить существующий адрес в личном кабинете
+      errors:
+        blank_email: Пожалуйста, заполните поле
+        blank_password: Пожалуйста, заполните поле
+        invalid_email: Невалидный адрес электронной почты
+        invalid_password: Пароль не совпадает, введите заново или восстановите его
+        identity_not_found: К сожалению, такой почты нет в нашей базе. Проверьте написание или зарегистрируйтесь
+        password_not_set: Пароль не задан - используйте другой способ входа или воспользуйтесь функцией сброса пароля
+        password_not_set_no_other_identity: Пароль не задан - воспользуйтесь функцией сброса пароля
+        password_does_not_match: Пароль не совпадает, проверьте написание
+        to_set_email_password_must_be_set: Чтобы изменить почту, нужно задать пароль
+      reset_password_email_sent: Спасибо, проверьте ваш почтовый ящик и выполните указанные действия
+#      reset_password_email_sent: Если указанная почта есть в нашей базе, на неё уже отправлено спасительное письмо
+      signed_out: Почтовый адрес успешно отвязан от профиля
+    errors:
+      record_already_exists: Запись уже существует
+      record_not_found: Запись не найдена
+      edit_unavailable: Редактирование невозможно
+      account_not_found: Аккаунт не найден, войдите или зарегистрируйтесь
+      current_year_program_form_exists: Форма уже зарегистрирована
+      conflict_appeard: Сожалеем, но у нас что-то пошло не так и мы уже начали разбираться. Повторите позже, пожалуйста
+      invalid_identity_params: Неподдерживаемый формат данных
+      invalid_relation_params: Запись не найдена
+#      multiple_account_present: Похоже уже существует другой аккаунт со схожими данными. Напишите нам в поддержку и мы разберемся
+      # TODO: contact us - how? should add email or another contact
+      social_already_bound_to_another_account: Профиль соцсети уже привязан к другому аккаунту. Если произошла ошибка, напишите нам
+      session_not_found: Чтобы совершить данное действие, нужна авторизация
+      session_presence: Вы уже залогинены, сначала нужно выйти из аккаунта
+      unable_to_sign_off_last_identity: Нельзя отвязать последний способ входа в аккаунт
+      unknown_error_occurred: Возникла непредвиденная ошибка, попробуйте повторить действие позже
+    facebook_identity:
+    social_identity:
+      connected: Соцсеть успешно привязна к аккаунту
+      connect_failed: Возникла ошибка привязки соцсети к аккаунту
+      auth_error: Возникла ошибка при авторизации через социальную сеть, повторите действие через некоторое время
+      facebook_unauthorized: Аккаунт Facebook успешно отвязан от вашего профиля
+      identity_does_not_exist: Ошибка отвязки, соцсеть не привязана
+      signed_in_instead_sign_up: Аккаунт найден, вы успешно вошли на сайт
+      signed_up_instead_sign_in: Аккаунт не найден, вы успешно зарегистрированы
+      vk_unauthorized: Аккаунт ВКонтакте успешно отвязан от вашего профиля
+    vk_identity:

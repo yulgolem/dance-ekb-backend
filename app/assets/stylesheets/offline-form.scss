@@ -1,0 +1,48 @@
+.ui.grid .offline-form-photo,
+.ui.grid .certificate-photo,
+.ui.grid .documents_attached_images {
+  img {
+    padding: 5px 10px 15px;
+    object-fit: scale-down;
+  }
+  label {
+    display: block;
+    font-size: 80%;
+  }
+}
+.ui.grid .offline-form-photo img,
+.ui.grid .certificate-photo img {
+  max-width: 100%;
+}
+.ui.grid .documents_attached_images {
+  .wide.column > div > div {
+    display: inline-block;
+  }
+  img {
+    max-width: 240px;
+  }
+}
+
+.ui.celled.grid .offline-form-photo img { max-height: 320px; }
+.ui.celled.grid .certificate-photo img { max-height: 200px; }
+
+.offline-form-attributes {
+  label {
+    font-size: 80%;
+  }
+  p {
+    margin: 5px 5px 15px;
+    padding: 5px;
+    max-width: 100%;
+    border: 1px solid #e3e3e3;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.lack-of-something {
+  margin: 10px 10px 40px 20px !important;
+  color: #888 !important;
+  font-size: .95rem !important;
+}

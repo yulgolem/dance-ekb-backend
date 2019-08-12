@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+.table-admino {
+  .ui-sortable {
+    cursor: -webkit-grab;
+  }
+}
+
+.dragged-item {
+  color: red;
+}
+
+.ui.attached.tabular.menu,
+.ui.attached.tabular.stackable.menu,
+.ui.secondary.stackable.menu,
+.ui.segment
+{
+  flex-wrap: wrap;
+}
+
+.table {
+  border-collapse: collapse;
+  th[role="id"] {
+    width: 80px;
+  }
+}
+
+.ui.celled.table tr th,
+.ui.celled.table tr td {
+  text-overflow: ellipsis;
+  white-space: unset;
+}

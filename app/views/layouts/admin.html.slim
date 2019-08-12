@@ -1,0 +1,114 @@
+doctype html
+html lang='ru'
+  head
+    meta charset='utf-8'
+    meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1'
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+    title= content_for?(:title) ? yield(:title) : 'IMI - панель управления'
+    = csrf_meta_tags
+
+    link href='/16x16.png' rel='icon' sizes='16x16'
+    link href='/32x32.png' rel='icon' sizes='32x32'
+    link href='/76x76.png' rel='icon' sizes='76x76'
+    link href='/96x96.png' rel='icon' sizes='96x96'
+    link href='/128x128.png' rel='icon' sizes='128x128'
+    link href='/192x192.png' rel='icon' sizes='192x192'
+    link href='/228x228.png' rel='icon' sizes='228x228'
+    link href='/196x196.png' rel='shortcut icon' sizes='196x196'
+    link href='/128x128.png' rel='apple-touch-icon' sizes='128x128'
+    link href='/144x144.png' rel='apple-touch-icon' sizes='144x144'
+    link href='/180x180.png' rel='apple-touch-icon' sizes='180x180'
+    meta name='msapplication-TileColor' content='#fafafa'
+    meta name='msapplication-TileImage' content='144x144.png'
+    meta name='msapplication-config' content='browserconfig.xml'
+
+    = stylesheet_link_tag 'vendor', media: 'all'
+    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'https://transloadit.edgly.net/releases/uppy/v0.30.4/uppy.min.css'
+    = yield :header
+
+    = javascript_include_tag 'vendor'
+    = javascript_include_tag 'application'
+
+    / workaround to bypass missing assets after precompile
+    - if @load_lightgallery
+      = stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/css/lightgallery.min.css', rel: 'stylesheet'
+      = javascript_include_tag 'https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/js/lightgallery.min.js'
+      link href='https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/img/loading.gif'
+      link href='https://cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/fonts/lg.woff'
+
+    / TODO: combine js/css to single bundle in production https://datatables.net/download/index
+    - if @load_datatables
+      / DataTables
+      = stylesheet_link_tag 'https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css', rel: 'stylesheet', type: 'text/css'
+      = javascript_include_tag 'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'
+
+      / Styling
+      / = stylesheet_link_tag 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css', rel: 'stylesheet', type: 'text/css'
+      = stylesheet_link_tag 'https://cdn.datatables.net/1.10.19/css/dataTables.jqueryui.min.css', rel: 'stylesheet', type: 'text/css'
+      = javascript_include_tag 'https://cdn.datatables.net/1.10.19/js/dataTables.jqueryui.min.js'
+      / Semantic theme working not good
+      / = stylesheet_link_tag 'https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css', rel: 'stylesheet', type: 'text/css'
+      / = javascript_include_tag 'https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js'
+
+      / Select
+      = stylesheet_link_tag 'https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css', rel: 'stylesheet', type: 'text/css'
+      = javascript_include_tag 'https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js'
+
+      / Responsive / not very useful as limits table to page width
+      / = stylesheet_link_tag 'https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css', rel: 'stylesheet', type: 'text/css'
+      / = javascript_include_tag 'https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js'
+
+      / Buttons
+      = stylesheet_link_tag 'https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css', rel: 'stylesheet', type: 'text/css'
+      = javascript_include_tag 'https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js'
+      / column visibility control
+      = javascript_include_tag 'https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js'
+      / HTML5 export buttons
+      = javascript_include_tag 'https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js'
+      / Print button
+      = javascript_include_tag 'https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js'
+      / Column visibility
+      = javascript_include_tag 'https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js'
+
+
+      / FixedHeader
+      = stylesheet_link_tag 'https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css', rel: 'stylesheet', type: 'text/css'
+      = javascript_include_tag 'https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js'
+
+      / Localization
+      / = javascript_include_tag 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/Russian.json', type: 'application/json'
+
+  body
+    .ui.left.rail
+      .sidebar
+        .sidebar__menu
+          ul.sidebar-nav
+            li.sidebar-brand
+              a#MenuToggle
+                | IMI
+                i.sub_icon.large.content.icon
+          .sidebar__menu__items
+            ul.sidebar-nav
+              li
+                = link_to edit_admin_admin_url(current_admin) do
+                  = current_admin&.full_name
+                  i.sub_icon.large.user.icon
+              - [[Admin, 'spy'],
+                 [Article, 'spy'],
+              ].each do |resource_item|
+                - if can? :read, resource_item[0]
+                  li
+                    = link_to url_for([:admin, resource_item[0]]) do
+                      = resource_item[0].model_name.human.pluralize(I18n.locale)
+                      i.sub_icon.large class="#{resource_item[1]} icon"
+
+              li= link_to '/admins/sign_out', method: :delete do
+                | Выйти
+                i.sub_icon.large.sign.out.icon
+    .ui.fluid.container
+      .ui.one.column.stackable.center.aligned.page.grid
+        .column.twelve.wide#flash-message
+          = flash_message
+      br
+      = yield

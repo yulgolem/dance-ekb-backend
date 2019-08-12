@@ -1,0 +1,69 @@
+ru:
+  controllers:
+    flash:
+      done: "Готово!"
+      error: "Ошибка!"
+      delete_done: "Запись удалена!"
+      delete_error: "Запись не может быть удалена!"
+      changes_are_saved: "Изменения сохранены!"
+      changes_are_not_saved: "Изменения не сохранены!"
+  admin:
+    admin_messages:
+      index:
+        action_list: "Действия"
+        actions:
+          accept: "Принять"
+    base:
+      form:
+        back_to_list: "Вернуться к списку"
+        preview_on_site: "Показать на сайте"
+        slug_placeholder: "Будет сформирован из названия/имени, если не указан"
+        tabs:
+          main: "Основное"
+      edit:
+        editing: "редактирование"
+      new:
+        create: "Создать"
+      index:
+        mode_normal: "Обычный режим"
+        mode_sorting: "Режим изменения порядка"
+        "true": "Да"
+        "false": "Нет"
+    insufficient_ability: "недостаточно прав"
+
+  layouts:
+    admin:
+      log_out: "Выйти"
+  form:
+    add: "Добавить %{name}"
+    paste: "Вставить %{name}"
+    apply: "Сохранить"
+    cancel: "Отменить"
+    canceling: "Отменяю..."
+    canceling_confirm: "Все несохраненные данные будут потеряны! Отменить редактирование?"
+    close: "Закрыть"
+    delete: "Удалить"
+    deleted: "Удалено"
+    edit: "Редактировать"
+    empty: "Не выбрано"
+    save: "Сохранить и закрыть"
+    saving: "Сохраняю..."
+    set: "Назначить"
+    preview: "Предпросмотр"
+    processing_icon: "<i class='large spinner loading icon'></i>"
+    more_on_syntax: "Подробнее о синтаксисе"
+    much_more_on_syntax: "еще подробнее"
+    published: 'Опубликовано'
+    unpublished: 'Неактивно'
+    main_collapse_tooltip: "Скрыть или показать часть полей в сортируемых блоках"
+    block_fields_collapse_tooltip: "Скрыть или показать часть полей в основных блоках"
+  table:
+    action_list: "Действия"
+    actions:
+      create: "Создать"
+      create_copy: "Создать копию"
+      destroy: "Удалить"
+      edit: "Редактировать"
+      search: "Найти"
+    search_placeholder: "Поиск..."
+    search_placeholder_short: "Поиск"

@@ -1,0 +1,65 @@
+- collection = present_collection(@resources)
+- params.permit!
+
+h2.ui.center.aligned.header
+  = resource_class.model_name.human.pluralize(:ru)
+
+.ui.container
+  - if can?(:create, resource_class)
+    - if new_resource_url.present?
+      = link_to new_resource_url(*params), class: 'ui small basic button' do
+        i.plus.icon
+        span = t('table.actions.create')
+
+  = render('index_header') if lookup_context.exists?('index_header', lookup_context.prefixes, true)
+  - if lookup_context.exists?("query_form", ["admin/#{resource_class.model_name.collection}"], true)
+    = simple_search_form_for(@query, html: { class: 'ui form submit-on-enter' }) do |form|
+      .ui.secondary.stackable.menu
+        = render 'query_form', form: form
+        .item
+          = form.button :submit, t('table.actions.search')
+
+  / - filters_for(@query) do |filter|
+  /   .panel.panel-default
+  /     .panel-heading: .panel-title= filter.name
+  /     .list-group
+  /       - filter.each_scope do |scope|
+  /         = scope.link class: 'list-group-item',
+  /           active_class: 'active'
+
+  = table_for(collection, class: resource_class, query: @query, presenter: AdminTablePresenter ) do |row, record|
+    - unless @hide_index_id
+      = row.column :id do
+        - if resource_class.method_defined?(:published?)
+          = record.publish_colored_id
+        - else
+          = record.id
+    - if can? :edit, resource_class
+      = row.column :actions, t('table.action_list'), width: '80px' do
+        .ui.small.basic.icon.buttons
+          / TODO: add menu generator, to place first item as visible and rest to hide in menu
+          / - menu_items = [] # array of [link, icon]
+          - if edit_resource_url(record)
+            = link_to edit_resource_url(record), class: 'ui button' do
+              i.edit.icon
+          - elsif resource_url(record)
+            = link_to resource_url(record), class: 'ui button' do
+              i.eye.outline.icon
+          / || new_resource_url
+          - if delete_resource_url(record)
+            .ui.icon.top.left.pointing.dropdown.button
+              i.dropdown.icon
+              .menu
+                / - if new_resource_url.present? && can?(:create, resource_class)
+                /   = link_to new_resource_url(*params.merge(copy_from: record.id)), class: 'item' do
+                /     i.copy.icon
+                /     = t('table.actions.create_copy')
+                - if delete_resource_url(record)
+                  - human_class_name = accusative(resource_class).mb_chars.downcase
+                  = link_to resource_url(record, *params), method: :delete, class: 'item',
+                    data: { confirm: "#{t('table.actions.destroy')} #{human_class_name} \"#{record.title}\"?" } do
+                    i.trash.icon
+                    = t('form.delete')
+
+    = render 'index_row', row: row, record: record
+  = paginate @resources

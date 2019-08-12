@@ -1,0 +1,43 @@
+# https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
+
+common: &default_settings
+  license_key: eu01xxd41ae5d065ffcbd4da7c54530a85a98530
+  app_name: IMI
+  monitor_mode: true
+  developer_mode: false
+  log_level: info
+  browser_monitoring:
+    auto_instrument: true
+  audit_log:
+    enabled: false
+  capture_params: true
+  transaction_tracer:
+    enabled: true
+    transaction_threshold: apdex_f
+    record_sql: obfuscated
+    stack_trace_threshold: 0.500
+    explain_enabled: true
+    explain_threshold: 0.5
+  error_collector:
+    enabled: true
+    ignore_errors: "ActionController::RoutingError,Sinatra::NotFound"
+
+development:
+  <<: *default_settings
+  # Turn on communication to New Relic service in development mode
+  monitor_mode: true
+  app_name: IMI backend (Development)
+  developer_mode: true
+
+test:
+  <<: *default_settings
+  monitor_mode: false
+
+production:
+  <<: *default_settings
+  monitor_mode: true
+
+staging:
+  <<: *default_settings
+  monitor_mode: true
+  app_name: IMI backend (Staging)

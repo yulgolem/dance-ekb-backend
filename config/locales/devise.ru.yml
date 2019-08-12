@@ -1,0 +1,41 @@
+ru:
+  devise:
+    confirmations:
+      confirmed: "Ваш email успешно подтвержден"
+      new:
+        resend_confirmation_instructions: "Выслать повторно письмо с активацией"
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по подтверждению email"
+      send_paranoid_instructions: "Если ваш email есть в системе, то в течение нескольких минут вы получите письмо с инструкциями по его подтверждению"
+    failure:
+      already_authenticated: "Вы уже вошли в систему"
+      invalid: "Неверный email или пароль."
+      last_attempt: "У вас осталась последняя попытка ввода пароля до блокировки учетной записи"
+      locked: "Ваша учетная запись заблокирована"
+      not_found_in_database: "Неверный email или пароль"
+      timeout: "Ваш сеанс закончился. Пожалуйста, войдите в систему снова"
+      unauthenticated: "Вам необходимо войти в систему или зарегистрироваться"
+    omniauth_callbacks:
+      failure: "Вы не можете войти в систему с учетной записью из %{kind}, т.к. '%{reason}'"
+      success: "Вход в систему выполнен с учетной записью из %{kind}."
+    sessions:
+      already_signed_out: "Выход из системы уже выполнен"
+      new:
+        sign_in: "Войти"
+        control_panel: "Панель управления"
+      signed_in: "Вход в систему выполнен"
+      signed_out: "Выход из системы выполнен"
+    shared:
+      links:
+        back: "Назад"
+        forgot_your_password: "Забыли пароль?"
+        sign_in: "Войти"
+        sign_up: "Регистрация"
+  devise_token_auth:
+    token_validations:
+      invalid: "Неверные логин или пароль"
+  errors:
+    messages:
+      wrong_input: "Указаны некорректные данные"
+      already_in_use: "уже используется"
+      not_email: "не является электронной почтой"
+      not_found: "не найден"

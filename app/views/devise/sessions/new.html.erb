@@ -1,0 +1,84 @@
+<style type="text/css">
+  body {
+    background-color: white;
+    padding: 40px;
+    min-width: 240px;
+  }
+  body > .grid {
+    height: 100%;
+  }
+  .column {
+    max-width: 360px;
+  }
+  h2 {
+    color: black;
+  }
+  .black {
+    background-color: black;
+  }
+  .app-color {
+    color: #8bc540;
+    /*background-color: #8bc540;*/
+  }
+  .form-actions {
+    margin: 0 10%;
+  }
+</style>
+<script>
+  $(document).ready(function() {
+    $('.ui.form').form({
+      fields: {
+        email: {
+          identifier  : 'admin_email',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter your e-mail'
+            },
+            {
+              type   : 'email',
+              prompt : 'Please enter a valid e-mail'
+            }
+          ]
+        },
+        password: {
+          identifier  : 'admin_password',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter your password'
+            }
+          ]
+        }
+      }
+    })
+  })
+</script>
+
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui image header">
+      <!--<img src="assets/images/logo.png" class="image">-->
+      IMI
+    </h2>
+    <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'ui large form' } do |f| %>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= f.input :email, required: false, autofocus: true, wrapper: false, label: false, placeholder: 'Email' %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <%= f.input :password, required: false, wrapper: false, label: false, placeholder: 'Password' %>
+        </div>
+      </div>
+      <%= f.input :remember_me, as: :boolean, wrapper: :semantic_checkbox if devise_mapping.rememberable? %>
+      <div class="form-actions">
+        <%= f.button :submit, 'Sign in', class: 'ui fluid large black submit button' %>
+      </div>
+      <div class="ui error message"></div>
+    <% end %>
+  </div>
+</div>

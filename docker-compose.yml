@@ -1,0 +1,29 @@
+# keep in sync with provision version !
+version: '3'
+services:
+  db:
+  #  restart: always
+    build: config/dockerfiles/db
+    ports:
+      - "5424:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: b68b3eb2977b6bdb714656edd88a74ff
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - db-logs:/var/log/postgresql
+  redis:
+  #  restart: always
+    build: config/dockerfiles/redis
+    ports:
+      - "6424:6379"
+    volumes:
+      - redis-data:/data
+
+volumes:
+  db-data:
+    driver: local
+  db-logs:
+    driver: local
+  redis-data:
+    driver: local

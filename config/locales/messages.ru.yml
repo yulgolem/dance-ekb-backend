@@ -1,0 +1,8 @@
+ru:
+  messages:
+    buttons:
+      open_in_admin_ui: Открыть в админке
+    admin:
+      _request:
+        title:
+        body:

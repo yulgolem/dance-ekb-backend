@@ -1,0 +1,9 @@
+<% translated_attributes.each do |attr| -%>
+= f.input :<%= attr %>_ru
+<% end -%>
+<% nontranslated_attributes.each do |attr| -%>
+= f.input :<%= attr %>
+<% end -%>
+<% translated_attributes.each do |attr| -%>
+= f.input :<%= attr %>_en
+<% end -%>

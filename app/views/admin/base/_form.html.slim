@@ -1,0 +1,25 @@
+= simple_form_for [:admin, @resource] do |f|
+  - if @resource.respond_to? :published=
+    = f.input :published, as: :boolean, wrapper: :semantic_checkbox_toggle, input_html: { id: 'published' }
+  .two.fields
+    - if @resource.respond_to?(:slug)
+      = f.input :slug, input_html: { placeholder: t('admin.base.form.slug_placeholder') },
+          disabled: f.object.respond_to?(:published) && f.object.published
+  div
+    = render 'form_fields', f: f
+  #form-actions.ui.segment.borderless.small.bottom.fixed.menu
+    .ui.stackable.grid.container
+      .row
+        - if @disable_save || @show_action
+          .item.two.wide.column
+            = link_to t('form.close'), nearest_index_url, class: 'ui green basic button'
+        - else
+          .item.fourteen.wide.column
+            = f.button :submit, t('form.save'), class: 'green basic ', id: 'save-and-close', data: { disable_with: t('form.saving') }
+            = f.button :submit, t('form.apply'), class: 'green basic apply-button', data: { disable_with: t('form.saving') }
+            / - if preview_on_site_url(@resource)
+            /   = link_to 'i.unhide.icon Предпросмотр'.html_safe, preview_on_site_url(@resource),
+            /     class: 'ui primary basic button preview-button', target: '_blank'
+          .item.two.wide.column
+            = link_to t('form.cancel'), nearest_index_url, class: 'ui red basic button',
+              data: { disable_with: t('form.canceling'), confirm: t('form.canceling_confirm') }

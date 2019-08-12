@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title= content_for?(:title) ? yield(:title) : ""
+
+    link href='/16x16.png' rel='icon' sizes='16x16'
+    link href='/32x32.png' rel='icon' sizes='32x32'
+    link href='/76x76.png' rel='icon' sizes='76x76'
+    link href='/96x96.png' rel='icon' sizes='96x96'
+    link href='/128x128.png' rel='icon' sizes='128x128'
+    link href='/192x192.png' rel='icon' sizes='192x192'
+    link href='/228x228.png' rel='icon' sizes='228x228'
+    link href='/196x196.png' rel='shortcut icon' sizes='196x196'
+    link href='/128x128.png' rel='apple-touch-icon' sizes='128x128'
+    link href='/144x144.png' rel='apple-touch-icon' sizes='144x144'
+    link href='/180x180.png' rel='apple-touch-icon' sizes='180x180'
+    meta name="msapplication-TileColor" content="#fafafa"
+    meta name="msapplication-TileImage" content="144x144.png"
+    meta name="msapplication-config" content="browserconfig.xml"
+
+    = csrf_meta_tags
+
+    = stylesheet_link_tag "vendor", media: "all"
+    = stylesheet_link_tag "application", media: "all"
+
+    = javascript_include_tag "vendor"
+    = javascript_include_tag "application"
+  body
+    = yield

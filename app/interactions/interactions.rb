@@ -1,0 +1,3 @@
+module Interactions
+  # stub
+end

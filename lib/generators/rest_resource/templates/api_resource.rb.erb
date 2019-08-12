@@ -1,0 +1,9 @@
+module API
+  module V1
+    class <%= class_name %>Resource < BaseResource
+      immutable
+      <%= "attributes #{translated_attributes.map{|a| ":#{a}"}.join(",\n                 ")}" if translated_attributes.present? %>
+      <%= "attributes #{(nontranslated_attributes - %w[slug published]).map{|a| ":#{a}"}.join(",\n                 ")}" if nontranslated_attributes.present? %>
+    end
+  end
+end

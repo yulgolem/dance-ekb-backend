@@ -1,0 +1,23 @@
+Description:
+    Generates a rest resource with the given name
+
+Example:
+    rails generate rest_resource Thing some_attr:tr another_attr:text:tr
+
+    :tr will create translatable attribute (_ru and _en)
+
+    This will:
+      generate  model
+      generate  showcase:presenter
+      generate  factory_bot:model
+        create  spec/acceptance/api/v1/tests_spec.rb
+        create  app/queries/things_query.rb
+        create  app/controllers/admin/things_controller.rb
+        create  app/views/admin/things/_form_fields.html.slim
+        create  app/views/admin/things/_index_row.html.slim
+        create  app/controllers/api/v1/things_controller.rb
+        create  app/resources/api/v1/thing_resource.rb
+        create  db/seed/tests.rb
+        append  db/seeds.rb
+        append  config/locales/ru.yml
+         route  add :things to public_resources

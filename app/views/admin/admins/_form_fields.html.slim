@@ -1,0 +1,14 @@
+.row
+  .sixteen.wide.mobile.eight.wide.computer.column
+    .two.fields
+      = f.input :first_name
+      = f.input :last_name
+    .two.fields
+      = f.input :email, required: true, input_html: { autocomplete: 'nope' }
+    .two.fields
+      = f.input :password, required: f.object.id.blank?, input_html: { autocomplete: 'new-password' }
+      = f.input :password_confirmation
+    - if can?(:manage, Admin)
+      .two.fields.top.aligned
+        = f.input :roles, as: :select, input_html: { multiple: true, class: 'ui fluid dropdown'},
+            collection: Admin::ADMIN_ROLES.keys.map{ |x| [t(x, scope: 'activerecord.attributes.admin.role_values'), x.to_s] }

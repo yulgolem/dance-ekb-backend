@@ -1,0 +1,37 @@
+- no_actions ||= false
+- sortable ||= false
+- order ||= sortable ? :position : false
+- collection ||= f.object.send(association)
+- partial ||= "#{association.to_s.singularize}_fields"
+- label ||= f.object.class.human_attribute_name association
+- klass ||= f.object.send(association).klass
+- name ||= accusative(klass).mb_chars.downcase
+- add_button_text ||= t('form.add', name: name)
+- paste_text ||= t('form.paste', name: name)
+- if label.present?
+  .ui.horizontal.divider
+    = label
+- klasses = { 'nested-sortable' => sortable, 'nested-container' => true }.select { |k, v| v }.keys.join(' ')
+div id=association class=klasses
+  - args = [association]
+  - if order
+    - args << collection.sort_by { |x| x.send(order) || 1000 }
+  - else
+    - args << collection
+  = f.simple_fields_for *args do |nested_f|
+    = render partial, f: nested_f, parent_f: f
+  - unless no_actions
+    .links
+      = link_to_add_association f, association, class: 'ui tiny basic button nested-add-link', partial: partial do
+        i.icon.plus
+        '
+        = add_button_text
+      / .ui.tiny.basic.button.paste-form class = "#{klass.model_name.collection[/(\w*$)/]}"
+      /   i.paste.icon
+      /   '
+      /   = paste_text
+      = yield if block_given?
+br
+- if sortable
+  javascript:
+    initNestedSortable()

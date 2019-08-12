@@ -1,0 +1,2 @@
+class ArticlePresenter < BasePresenter
+end

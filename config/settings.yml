@@ -1,0 +1,17 @@
+urls:
+  public: lvh.me:3000
+  static: static.lvh.me:3000
+  assets: assets.lvh.me:3000
+  admin: admin.lvh.ru:3000
+
+email:
+  from: imi@imi.rum
+
+vk:
+  app_id: 6993170
+  api_version: 5.95
+  redirect_uri: https://oauth.vk.com/blank.html # default testing uri, code/token will be returned with params to user
+
+facebook:
+  api_version: 3.3
+  app_id: 419912105228306

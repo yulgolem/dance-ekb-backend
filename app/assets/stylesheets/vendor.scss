@@ -1,0 +1,62 @@
+/*
+ *= require jquery-ui/sortable
+ * require lightgallery.js/dist/css/lightgallery.min
+ *= require_self
+*/
+
+// might override fonts to use frontend ones too, but they are really ugly =(
+//$import-google-fonts: true !default;
+//$font-url: 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin,latin-ext' !default;
+//$font-name: 'Lato' !default;
+//$font-family: $font-name, 'Helvetica Neue', Arial, Helvetica, sans-serif !default;
+
+@import "semantic-ui";
+@import "calendar";
+@import "selectize.default";
+//@import "simplemde.min";
+//@import "noty/lib/noty";
+//@import "noty/lib/themes/semanticui";
+
+.apply-button, .preview-button {
+  margin-left: 20px !important;
+}
+
+td.centered-column {
+  text-align: center !important;
+}
+
+th[role="default-region"] {
+  width: 80px;
+}
+
+h5.ui.header {
+  font-size: .95rem;
+}
+
+.selectize-control.multi .selectize-input.has-items {
+  padding: 6px 8px 3px;
+}
+
+@media only screen and (min-width: 1400px) {
+  .ui.container {
+    width: 1280px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.container {
+    width: calc(100% - 100px);
+  }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .ui.container {
+    width: calc(100% - 80px);
+  }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .ui.container {
+    width: calc(100% - 60px);
+  }
+}

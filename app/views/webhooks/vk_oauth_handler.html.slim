@@ -1,0 +1,9 @@
+| processing ...
+
+javascript:
+  var response = JSON.parse('#{@vk_params.to_json.html_safe}');
+  if (window.opener && window.opener.vkCallback) {
+    window.opener.vkCallback(response);
+  }
+  window.close();
+  window.location.replace("/");

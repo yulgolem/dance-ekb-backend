@@ -1,0 +1,29 @@
+<%= render layout: 'user_mailer/body' do %>
+  <p>
+    <%= @title %>
+  </p>
+  <%= raw @body.gsub('"/admin', "\"https://#{Settings.urls.admin}/admin") %>
+  <% if @payload %>
+    <p>
+      <% if @payload[:full_name].present? %>
+        <%= @payload[:full_name] %>
+        <br/>
+      <% end %>
+      <% if @payload[:email].present? %>
+        <%= @payload[:email] %>
+        <br/>
+      <% end %>
+      <% if @payload[:phone].present? %>
+        <%= Phonelib.parse(@payload[:phone]).full_international %>
+        <br/>
+      <% end %>
+    </p>
+  <% end %>
+<% end %>
+
+<% if @link %>
+  <%= render partial: 'user_mailer/button', locals: {
+      href: "https://#{Settings.urls.admin}#{@link}",
+      text: I18n.t('messages.buttons.open_in_admin_ui')
+  } %>
+<% end %>

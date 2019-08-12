@@ -1,0 +1,6 @@
+:concurrency: 3
+:queues:
+  - [default, 5]
+  - [mailers, 3]
+#  - [searchkick, 2]
+#  - [mailchimp, 1]

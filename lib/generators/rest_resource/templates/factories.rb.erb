@@ -1,0 +1,6 @@
+FactoryBot.define do
+  factory :<%=singular_table_name%> do
+    <%= "#{translated_attributes.join(" nil\n    ")}" if translated_attributes.present? %>
+    <%= "#{(nontranslated_attributes - %w[slug published]).join(" nil\n    ")}" if nontranslated_attributes.present? %> nil
+  end
+end

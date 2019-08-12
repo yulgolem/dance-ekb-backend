@@ -1,0 +1,19 @@
+# see docker-compose.yml
+default: &default
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: b68b3eb2977b6bdb714656edd88a74ff
+  port: 5420
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: imi_development
+
+test:
+  <<: *default
+  database: imi_test

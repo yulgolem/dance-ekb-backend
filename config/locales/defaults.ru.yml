@@ -1,0 +1,11 @@
+ru:
+  number:
+    currency:
+       format:
+         unit: 'руб.'
+         delimiter: ' '
+         separator: '.'
+         precision: 2
+         format: '%n %u'
+  currency_code: "RUB" # in ISO 4217 format
+  currency_sign: "₽"
