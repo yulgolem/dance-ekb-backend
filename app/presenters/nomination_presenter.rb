@@ -1,0 +1,2 @@
+class NominationPresenter < BasePresenter
+end

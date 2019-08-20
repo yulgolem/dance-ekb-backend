@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   end
 
   admin_resources = %i[
-    articles
+    collectives
+    event_dates
+    events
+    nominations
+    performances
   ]
 
   namespace :admin do
@@ -26,20 +30,20 @@ Rails.application.routes.draw do
     end
   end
 
-  api_resources = admin_resources
+  # api_resources = admin_resources
+  #
+  # namespace :api do
+  #   namespace :v1 do
+  #     mount BaseUploader.upload_endpoint(:cache) => "/file_upload", :as => :file_upload
+  #
+  #     api_resources.each do |resource_name|
+  #       jsonapi_resources resource_name
+  #     end
+  #   end
+  # end
 
-  namespace :api do
-    namespace :v1 do
-      mount BaseUploader.upload_endpoint(:cache) => "/file_upload", :as => :file_upload
-
-      api_resources.each do |resource_name|
-        jsonapi_resources resource_name
-      end
-    end
-  end
-
-  namespace :webhooks do
-    get "social_auth/vk_oauth_handler", to: "social_auth#vk_oauth_handler"
-    get "social_auth/facebook_oauth_handler", to: "social_auth#facebook_oauth_handler"
-  end
+  # namespace :webhooks do
+  #   get "social_auth/vk_oauth_handler", to: "social_auth#vk_oauth_handler"
+  #   get "social_auth/facebook_oauth_handler", to: "social_auth#facebook_oauth_handler"
+  # end
 end

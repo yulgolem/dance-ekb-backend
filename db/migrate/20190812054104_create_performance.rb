@@ -4,9 +4,10 @@ class CreatePerformance < ActiveRecord::Migration[5.2]
       t.references :collective, foreign_key: true
       t.references :event_date, foreign_key: true
 
-      t.string :age
+      t.integer :age_from
+      t.integer :age_to
       t.string :genre
-      t.string :choreograph_full_name
+      t.string :choreographer_full_name
       t.integer :participants_count
       t.string :title
       t.boolean :from_dot, default: false, nil: false

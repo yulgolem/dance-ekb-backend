@@ -27,8 +27,8 @@ class Admin < ActiveRecord::Base
 
   ADMIN_ROLES = {
     admin: 1,
-    formal_assessment_expert: 2,
-    meaningful_assessment_expert: 3,
+    # formal_assessment_expert: 2,
+    # meaningful_assessment_expert: 3,
   }.freeze
 
   ADMIN_ROLES.keys.map(&:to_s).each do |role|
@@ -53,13 +53,13 @@ class Admin < ActiveRecord::Base
       )
     end
 
-    if (roles & %w[formal_assessment_expert meaningful_assessment_expert]).count == 2
-      errors.add(:roles, :exclusive_expert_values)
-    end
-
-    if (roles & %w[admin formal_assessment_expert]).count == 2 ||
-        (roles & %w[admin meaningful_assessment_expert]).count == 2
-      errors.add(:roles, :exclusive_admin_and_expert_values)
-    end
+    # if (roles & %w[formal_assessment_expert meaningful_assessment_expert]).count == 2
+    #   errors.add(:roles, :exclusive_expert_values)
+    # end
+    #
+    # if (roles & %w[admin formal_assessment_expert]).count == 2 ||
+    #     (roles & %w[admin meaningful_assessment_expert]).count == 2
+    #   errors.add(:roles, :exclusive_admin_and_expert_values)
+    # end
   end
 end

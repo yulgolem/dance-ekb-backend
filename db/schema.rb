@@ -32,12 +32,6 @@ ActiveRecord::Schema.define(version: 2019_08_12_060124) do
     t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
-  create_table "age_categories", force: :cascade do |t|
-    t.string "title"
-    t.bigint "event_date_id"
-    t.index ["event_date_id"], name: "index_age_categories_on_event_date_id"
-  end
-
   create_table "collectives", force: :cascade do |t|
     t.string "city"
     t.string "head_full_name"
@@ -60,23 +54,35 @@ ActiveRecord::Schema.define(version: 2019_08_12_060124) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "nominations", force: :cascade do |t|
+    t.string "title"
+    t.integer "age_from"
+    t.integer "age_to"
+    t.bigint "event_date_id"
+    t.index ["event_date_id"], name: "index_nominations_on_event_date_id"
+  end
+
   create_table "performances", force: :cascade do |t|
     t.bigint "collective_id"
     t.bigint "event_date_id"
-    t.string "age"
+    t.integer "age_from"
+    t.integer "age_to"
     t.string "genre"
-    t.string "choreograph_full_name"
+    t.string "choreographer_full_name"
     t.integer "participants_count"
     t.string "title"
     t.boolean "from_dot", default: false
     t.integer "priority"
     t.integer "status"
+    t.bigint "nomination_id"
     t.index ["collective_id"], name: "index_performances_on_collective_id"
     t.index ["event_date_id"], name: "index_performances_on_event_date_id"
+    t.index ["nomination_id"], name: "index_performances_on_nomination_id"
   end
 
-  add_foreign_key "age_categories", "event_dates"
   add_foreign_key "event_dates", "events"
+  add_foreign_key "nominations", "event_dates"
   add_foreign_key "performances", "collectives"
   add_foreign_key "performances", "event_dates"
+  add_foreign_key "performances", "nominations"
 end

@@ -4,7 +4,11 @@ class AdminAbility
   def initialize(preview_access_token: nil, admin: nil)
     return unless preview_access_token || admin
     models = [
-      Article,
+      Collective,
+      Event,
+      EventDate,
+      Nomination,
+      Performance,
     ]
 
     if admin.presence && admin.roles.include?("admin")

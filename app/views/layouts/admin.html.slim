@@ -90,12 +90,16 @@ html lang='ru'
                 i.sub_icon.large.content.icon
           .sidebar__menu__items
             ul.sidebar-nav
-              li
-                = link_to edit_admin_admin_url(current_admin) do
-                  = current_admin&.full_name
-                  i.sub_icon.large.user.icon
+              / li
+              /   = link_to edit_admin_admin_url(current_admin) do
+              /     = current_admin&.full_name
+              /     i.sub_icon.large.user.icon
               - [[Admin, 'spy'],
-                 [Article, 'spy'],
+                 [Collective, 'users'],
+                 [Event, 'bell'],
+                 [EventDate, 'calendar alternate'],
+                 [Nomination, 'file'],
+                 [Performance, 'eye'],
               ].each do |resource_item|
                 - if can? :read, resource_item[0]
                   li

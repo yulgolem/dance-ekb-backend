@@ -1,0 +1,2 @@
+class EventPresenter < BasePresenter
+end
