@@ -1,0 +1,10 @@
+.row
+  .sixteen.wide.mobile.eight.wide.computer.column
+    .two.fields
+      = f.input :title
+      = f.input :description
+    .two.fields
+      = f.association :event, as: :select,
+        input_html: { class: 'ui search dropdown' },
+        collection: Event.all
+      = f.input :event_date, as: :date_picker

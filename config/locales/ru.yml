@@ -324,6 +324,18 @@ ru:
         employer_name: Фамилия и имя
         employer_email: Email
         employer_phone: Телефон
+      event:
+        event_types:
+          festival: Фестиваль
+          contest: Конкурс
+      performance:
+        status:
+          one: Статус
+        statuses:
+          draft: Черновик
+          confirmed: Подтверждено
+          paid: Оплачено
+          arrived: Приехали
     errors:
       base:
         blank: не может быть пустым

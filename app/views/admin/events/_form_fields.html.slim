@@ -1,0 +1,7 @@
+.row
+  .sixteen.wide.mobile.eight.wide.computer.column
+    .two.fields
+      = f.input :title
+      = f.input :event_type, as: :select,
+        input_html: {class: 'ui dropdown'},
+        collection: enum_options_for_select(Event, :event_type)

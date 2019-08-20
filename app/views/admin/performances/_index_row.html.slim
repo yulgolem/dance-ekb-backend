@@ -1,0 +1,5 @@
+= row.column :title
+= row.column :nomination_title do
+  = record.nomination&.title
+= row.column :collective_title do
+  = record.collective.title

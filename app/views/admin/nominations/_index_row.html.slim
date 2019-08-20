@@ -1,0 +1,5 @@
+= row.column :title
+= row.column :age do
+  = [record.age_from, record.age_to].join('/')
+= row.column :event_date do
+  = record.event_date&.event_date&.strftime('%d-%m-%Y')

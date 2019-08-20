@@ -1,0 +1,28 @@
+.row
+  .sixteen.wide.mobile.eight.wide.computer.column
+    .two.fields
+      = f.input :title
+      = f.association :collective, as: :select,
+              input_html: {class: 'ui search dropdown'},
+              collection: Collective.all
+    .two.fields
+      = f.input :age_from
+      = f.input :age_to
+    .two.fields
+      = f.input :genre
+      = f.input :choreographer_full_name
+    .two.fields
+      = f.input :participants_count
+      = f.input :from_dot, as: :boolean, wrapper: :semantic_checkbox_toggle
+    .two.fields
+      = f.input :status, as: :select,
+              input_html: {class: 'ui dropdown'},
+              collection: enum_options_for_select(Performance, :status)
+    .two.fields
+      = f.association :nomination, as: :select,
+              input_html: {class: 'ui search dropdown'},
+              collection: Nomination.all
+      = f.association :event_date, as: :select,
+              input_html: { class: 'ui search dropdown' },
+              collection: EventDate.all
+

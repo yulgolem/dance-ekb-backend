@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_08_12_060124) do
 
   create_table "events", force: :cascade do |t|
     t.string "title"
-    t.integer "type"
+    t.integer "event_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,8 +58,10 @@ ActiveRecord::Schema.define(version: 2019_08_12_060124) do
     t.string "title"
     t.integer "age_from"
     t.integer "age_to"
+    t.bigint "event_id"
     t.bigint "event_date_id"
     t.index ["event_date_id"], name: "index_nominations_on_event_date_id"
+    t.index ["event_id"], name: "index_nominations_on_event_id"
   end
 
   create_table "performances", force: :cascade do |t|

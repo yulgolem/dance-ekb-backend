@@ -1,0 +1,5 @@
+= row.column :title
+= row.column :event_type do
+  = t(record.event_type, scope: 'activerecord.attributes.event.event_types')
+= row.column :event_dates do
+  = record.event_dates&.pluck(:event_date)&.map { |date| date.strftime('%d-%m-%Y')  }&.join(',')

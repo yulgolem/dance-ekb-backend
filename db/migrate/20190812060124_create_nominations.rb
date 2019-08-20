@@ -4,6 +4,7 @@ class CreateNominations < ActiveRecord::Migration[5.2]
       t.string :title
       t.integer :age_from
       t.integer :age_to
+      t.references :event
       t.references :event_date, foreign_key: true
     end
 
