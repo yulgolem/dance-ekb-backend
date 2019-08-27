@@ -3,13 +3,21 @@
     .two.fields
       = f.input :title
     .two.fields
-      = f.input :age_from
-      = f.input :age_to
-    .two.fields
       = f.association :event, as: :select,
               input_html: {class: 'ui search dropdown'},
               collection: Event.all
       = f.association :event_date, as: :select,
               input_html: { class: 'ui search dropdown' },
               collection: EventDate.all
+      .three.fields
+
+        = f.association :genre, as: :select,
+                input_html: {class: 'ui search dropdown'},
+                collection: Genre.all
+        = f.association :age_range, as: :select,
+                input_html: {class: 'ui search dropdown'},
+                collection: AgeRange.all
+        = f.association :format, as: :select,
+                input_html: {class: 'ui search dropdown'},
+                collection: Format.all
 

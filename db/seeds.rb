@@ -15,3 +15,6 @@ module Seeder
 end
 
 Seeder.seed("admins")
+Seeder.seed("age_ranges")
+Seeder.seed("genres")
+Seeder.seed("formats")

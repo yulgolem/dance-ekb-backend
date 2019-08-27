@@ -3,7 +3,7 @@
 #   t.bigint :event_date_id
 #   t.integer :age_from
 #   t.integer :age_to
-#   t.string :genre
+#   t.string :style
 #   t.string :choreographer_full_name
 #   t.integer :participants_count
 #   t.string :title
@@ -11,8 +11,10 @@
 #   t.integer :priority
 #   t.integer :status
 #   t.bigint :nomination_id
+#   t.bigint :genre_id
 #   t.index [:collective_id], name: :index_performances_on_collective_id
 #   t.index [:event_date_id], name: :index_performances_on_event_date_id
+#   t.index [:genre_id], name: :index_performances_on_genre_id
 #   t.index [:nomination_id], name: :index_performances_on_nomination_id
 # end
 
