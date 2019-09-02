@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_140324) do
+ActiveRecord::Schema.define(version: 2019_09_02_070114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,11 +30,6 @@ ActiveRecord::Schema.define(version: 2019_08_27_140324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
-  end
-
-  create_table "age_ranges", force: :cascade do |t|
-    t.integer "age_from"
-    t.integer "age_to"
   end
 
   create_table "collectives", force: :cascade do |t|
@@ -65,23 +60,18 @@ ActiveRecord::Schema.define(version: 2019_08_27_140324) do
     t.integer "participants_count_to"
   end
 
-  create_table "genres", force: :cascade do |t|
-    t.string "title"
-    t.string "comment"
-  end
-
   create_table "nominations", force: :cascade do |t|
     t.string "title"
+    t.integer "age_from"
+    t.integer "age_to"
     t.bigint "event_id"
     t.bigint "event_date_id"
-    t.bigint "genre_id"
-    t.bigint "age_range_id"
+    t.bigint "style_id"
     t.bigint "format_id"
-    t.index ["age_range_id"], name: "index_nominations_on_age_range_id"
     t.index ["event_date_id"], name: "index_nominations_on_event_date_id"
     t.index ["event_id"], name: "index_nominations_on_event_id"
     t.index ["format_id"], name: "index_nominations_on_format_id"
-    t.index ["genre_id"], name: "index_nominations_on_genre_id"
+    t.index ["style_id"], name: "index_nominations_on_style_id"
   end
 
   create_table "performances", force: :cascade do |t|
@@ -97,20 +87,24 @@ ActiveRecord::Schema.define(version: 2019_08_27_140324) do
     t.integer "priority"
     t.integer "status"
     t.bigint "nomination_id"
-    t.bigint "genre_id"
+    t.bigint "style_id"
     t.index ["collective_id"], name: "index_performances_on_collective_id"
     t.index ["event_date_id"], name: "index_performances_on_event_date_id"
-    t.index ["genre_id"], name: "index_performances_on_genre_id"
     t.index ["nomination_id"], name: "index_performances_on_nomination_id"
+    t.index ["style_id"], name: "index_performances_on_style_id"
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "title"
+    t.string "comment"
   end
 
   add_foreign_key "event_dates", "events"
-  add_foreign_key "nominations", "age_ranges"
   add_foreign_key "nominations", "event_dates"
   add_foreign_key "nominations", "formats"
-  add_foreign_key "nominations", "genres"
+  add_foreign_key "nominations", "styles"
   add_foreign_key "performances", "collectives"
   add_foreign_key "performances", "event_dates"
-  add_foreign_key "performances", "genres"
   add_foreign_key "performances", "nominations"
+  add_foreign_key "performances", "styles"
 end

@@ -95,11 +95,12 @@ html lang='ru'
               /     = current_admin&.full_name
               /     i.sub_icon.large.user.icon
               - [[Admin, 'spy'],
-                 [Collective, 'users'],
                  [Event, 'bell'],
                  [EventDate, 'calendar alternate'],
-                 [Nomination, 'file'],
+                 [Style, 'sitemap'],
+                 [Collective, 'users'],
                  [Performance, 'eye'],
+                 [Nomination, 'file'],
               ].each do |resource_item|
                 - if can? :read, resource_item[0]
                   li

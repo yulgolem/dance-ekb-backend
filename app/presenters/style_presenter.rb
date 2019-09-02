@@ -1,0 +1,2 @@
+class StylePresenter < BasePresenter
+end
