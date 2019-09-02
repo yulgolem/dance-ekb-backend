@@ -22,7 +22,7 @@ class Performance < ActiveRecord::Base
 
   belongs_to :collective
   belongs_to :event_date
-  belongs_to :nomination
+  belongs_to :nomination, optional: true
   belongs_to :style
 
   enum status: {

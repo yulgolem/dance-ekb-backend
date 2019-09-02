@@ -17,3 +17,4 @@ end
 Seeder.seed("admins")
 Seeder.seed("styles")
 Seeder.seed("formats")
+Seeder.seed("collectives")

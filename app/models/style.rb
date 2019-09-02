@@ -6,6 +6,8 @@
 class Style < ActiveRecord::Base
 
   has_many :performances
-  has_many :nominations
+
+  has_many :nomination_styles, dependent: :destroy
+  has_many :nominations, through: :nomination_styles
 
 end

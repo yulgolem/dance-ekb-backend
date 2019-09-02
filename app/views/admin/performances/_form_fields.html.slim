@@ -9,7 +9,9 @@
       = f.input :age_from
       = f.input :age_to
     .two.fields
-      = f.input :genre
+      = f.association :style, as: :select,
+              input_html: {class: 'ui search dropdown'},
+              collection: Style.all
       = f.input :choreographer_full_name
     .two.fields
       = f.input :participants_count
@@ -19,9 +21,9 @@
               input_html: {class: 'ui dropdown'},
               collection: enum_options_for_select(Performance, :status)
     .two.fields
-      = f.association :nomination, as: :select,
-              input_html: {class: 'ui search dropdown'},
-              collection: Nomination.all
+      / = f.association :nomination, as: :select,
+      /         input_html: {class: 'ui search dropdown'},
+      /         collection: Nomination.all
       = f.association :event_date, as: :select,
               input_html: { class: 'ui search dropdown' },
               collection: EventDate.all

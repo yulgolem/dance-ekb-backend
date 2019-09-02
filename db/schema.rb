@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_070114) do
+ActiveRecord::Schema.define(version: 2019_09_02_080133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,18 +60,24 @@ ActiveRecord::Schema.define(version: 2019_09_02_070114) do
     t.integer "participants_count_to"
   end
 
+  create_table "nomination_styles", force: :cascade do |t|
+    t.bigint "nomination_id"
+    t.bigint "style_id"
+    t.integer "priority"
+    t.index ["nomination_id"], name: "index_nomination_styles_on_nomination_id"
+    t.index ["style_id"], name: "index_nomination_styles_on_style_id"
+  end
+
   create_table "nominations", force: :cascade do |t|
     t.string "title"
     t.integer "age_from"
     t.integer "age_to"
     t.bigint "event_id"
     t.bigint "event_date_id"
-    t.bigint "style_id"
     t.bigint "format_id"
     t.index ["event_date_id"], name: "index_nominations_on_event_date_id"
     t.index ["event_id"], name: "index_nominations_on_event_id"
     t.index ["format_id"], name: "index_nominations_on_format_id"
-    t.index ["style_id"], name: "index_nominations_on_style_id"
   end
 
   create_table "performances", force: :cascade do |t|
@@ -100,9 +106,10 @@ ActiveRecord::Schema.define(version: 2019_09_02_070114) do
   end
 
   add_foreign_key "event_dates", "events"
+  add_foreign_key "nomination_styles", "nominations"
+  add_foreign_key "nomination_styles", "styles"
   add_foreign_key "nominations", "event_dates"
   add_foreign_key "nominations", "formats"
-  add_foreign_key "nominations", "styles"
   add_foreign_key "performances", "collectives"
   add_foreign_key "performances", "event_dates"
   add_foreign_key "performances", "nominations"

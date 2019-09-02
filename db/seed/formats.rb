@@ -16,4 +16,4 @@ end
 
 FormatsGenerator.new('Соло-дуэт-трио', 1, 3).create!
 FormatsGenerator.new('Ансамбль', 4, 8).create!
-FormatsGenerator.new('Соло-дуэт-трио', 8).create!
+FormatsGenerator.new('Формейшн', 8).create!

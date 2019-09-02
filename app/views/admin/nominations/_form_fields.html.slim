@@ -10,12 +10,13 @@
               input_html: { class: 'ui search dropdown' },
               collection: EventDate.all
     .two.fields
-      = f.association :style, as: :select,
-              input_html: {class: 'ui search dropdown'},
-              collection: Style.all
+      = f.association :styles, collection: Style.includes(:nominations).references(:nominations).sort_by{ |x| x.nominations.count }, input_html: {multiple: true}
       = f.association :format, as: :select,
               input_html: {class: 'ui search dropdown'},
               collection: Format.all
     .two.fields
       = f.input :age_from
       = f.input :age_to
+
+javascript:
+  $('#nomination_style_ids').selectize({plugins: ['remove_button', 'drag_drop']});

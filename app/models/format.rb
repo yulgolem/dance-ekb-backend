@@ -5,4 +5,7 @@
 # end
 
 class Format < ActiveRecord::Base
+
+  has_many :nominations
+
 end
