@@ -19,7 +19,6 @@
 # end
 
 class Performance < ActiveRecord::Base
-
   belongs_to :collective
   belongs_to :event_date
   belongs_to :nomination, optional: true
@@ -32,7 +31,39 @@ class Performance < ActiveRecord::Base
     arrived: 4,
   }
 
+  CONFIRMED_STATUSES = [
+      :confirmed,
+  ]
+
+  scope :by_age_from, ->(nomination) { where("age_from >= ?", nomination.age_from) }
+  scope :by_age_to, ->(nomination) { where("age_to <= ?", nomination.age_to) }
+  scope :by_format_from, ->(nomination) { where("participants_count >= ?", nomination.format.participants_count_from) }
+  scope :by_format_to, ->(nomination) { where("participants_count <= ?", nomination.format.participants_count_to || 999) }
+  scope :by_style, ->(nomination) { where(style_id: nomination.styles.pluck(:id)) }
+
+  scope :by_nomination, ->(nomination) {
+                          by_age_from(nomination)
+                            .by_age_to(nomination)
+                            .by_format_from(nomination)
+                            .by_format_to(nomination)
+                            .by_style(nomination)
+                        }
+
+  scope :confirmed, -> { where(status: Performance.statuses.values_at(*CONFIRMED_STATUSES) ) }
+
   def published?
     true
+  end
+
+  def nomination_title
+    ::BindPerformanceService.nominations_title_for_performance(self)
+  end
+
+  def nominations_count
+    ::BindPerformanceService.nominations_count_for_performance(self)
+  end
+
+  def nomination_ids
+    ::BindPerformanceService.nomination_ids_for_performance(self)
   end
 end

@@ -1,0 +1,19 @@
+= row.column :title do
+  = link_to edit_admin_performance_url(record), target: '_blank' do
+    = record.title
+= row.column :collective_title do
+  = record.collective.title
+= row.column :city do
+  = record.collective.city
+= row.column :age do
+  = [record.age_from.to_s, record.age_to.to_s].join('-')
+= row.column :participants_count
+= row.column :style do
+  = record.style.title
+= row.column :nomination_title do
+  - if record.nominations_count > 1
+    span.ui.small.basic.red.label
+      = record.nomination_title
+  - elsif record.nominations_count == 1
+    span.ui.small.basic.green.label
+      = record.nomination_title

@@ -1,0 +1,7 @@
+- @data = Performance.by_nomination(object)
+- if @data
+  .ui.container
+    = table_for(@data, class: Performance, query: PerformancesQuery, presenter: AdminTablePresenter ) do |row, record|
+      = row.column :id do
+        = record.id
+      =  render 'performance_index_row', row: row, record: record

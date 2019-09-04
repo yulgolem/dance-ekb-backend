@@ -18,5 +18,9 @@
       = f.input :age_from
       = f.input :age_to
 
+
+- if f.object.persisted?
+  = render partial: 'admin/nominations/performances_list', locals: {object: f.object}
+
 javascript:
   $('#nomination_style_ids').selectize({plugins: ['remove_button', 'drag_drop']});

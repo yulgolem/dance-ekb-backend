@@ -1,5 +1,10 @@
 = row.column :title
 = row.column :nomination_title do
-  = record.nomination&.title
+  - if record.nominations_count > 1
+    span.ui.small.basic.red.label
+      = record.nomination_title
+  - elsif record.nominations_count == 1
+    span.ui.small.basic.green.label
+      = record.nomination_title
 = row.column :collective_title do
   = record.collective.title
