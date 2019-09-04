@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     nominations
     performances
     styles
+    performance_formats
   ]
 
   namespace :admin do

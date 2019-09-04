@@ -16,5 +16,5 @@ end
 
 Seeder.seed("admins")
 Seeder.seed("styles")
-Seeder.seed("formats")
+Seeder.seed("performance_formats")
 Seeder.seed("collectives")

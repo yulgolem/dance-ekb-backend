@@ -37,8 +37,8 @@ class Performance < ActiveRecord::Base
 
   scope :by_age_from, ->(nomination) { where("age_from >= ?", nomination.age_from) }
   scope :by_age_to, ->(nomination) { where("age_to <= ?", nomination.age_to) }
-  scope :by_format_from, ->(nomination) { where("participants_count >= ?", nomination.format.participants_count_from) }
-  scope :by_format_to, ->(nomination) { where("participants_count <= ?", nomination.format.participants_count_to || 999) }
+  scope :by_format_from, ->(nomination) { where("participants_count >= ?", nomination.performance_format.participants_count_from) }
+  scope :by_format_to, ->(nomination) { where("participants_count <= ?", nomination.performance_format.participants_count_to || 999) }
   scope :by_style, ->(nomination) { where(style_id: nomination.styles.pluck(:id)) }
 
   scope :by_nomination, ->(nomination) {

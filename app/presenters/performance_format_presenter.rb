@@ -1,0 +1,2 @@
+class PerformanceFormatPresenter < BasePresenter
+end

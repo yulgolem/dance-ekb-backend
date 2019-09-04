@@ -11,9 +11,9 @@
               collection: EventDate.all
     .two.fields
       = f.association :styles, collection: Style.includes(:nominations).references(:nominations).sort_by{ |x| x.nominations.count }, input_html: {multiple: true}
-      = f.association :format, as: :select,
+      = f.association :performance_format, as: :select,
               input_html: {class: 'ui search dropdown'},
-              collection: Format.all
+              collection: PerformanceFormat.all
     .two.fields
       = f.input :age_from
       = f.input :age_to

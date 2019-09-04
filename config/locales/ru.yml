@@ -120,78 +120,54 @@ ru:
         many: Прикрепленных изображений
         countless: Прикрепленные изображения
         accusative: Прикрепленное изображение
-      email_identity:
-        one: Почта аккаунта
-        few: Почты аккаунта
-        many: Почт аккаунта
-        countless: Почты аккаунта
-        accusative: Почту аккаунта
-      facebook_identity:
-        one: Facebook аккаунта
-        few: Facebook аккаунта
-        many: Facebook аккаунта
-        countless: Facebook аккаунта
-        accusative: Facebook аккаунта
-      education_facility:
-        one: Учебное заведение
-        few: Учебных заведения
-        many: Учебных заведений
-        countless: Учебные заведения
-        accusative: Учебное заведение
-      notification:
-        one: Уведомление
-        few: Уведомления
-        many: Уведомлений
-        countless: Уведомления
-        accusative: Уведомление
-      offline_form:
-        one: Заявка на программу
-        few: Заявки на программу
-        many: Заявок на программу
-        countless: Заявки на программу
-        accusative: Заявку на программу
-      offline/formal_assessment:
-        one: Формальный отбор
-        few: Формального отбора # edited for proper accusative form
-        many: Формальный отбор
-        countless: Формальный отбор
-        accusative: Формальный отбор
-      offline/meaningful_assessment:
-        one: Содержательный отбор
-        few: Содержательного отбора # edited for proper accusative form
-        many: Содержательный отбор
-        countless: Содержательный отбор
-        accusative: Содержательный отбор
-      profile:
-        one: Профиль
-        few: Профиля
-        many: Профилей
-        countless: Профили
-        accusative: Профиль
       session:
         one: Сессия аккаунта
         few: Сессии аккаунта
         many: Сессий аккаунта
         countless: Сессии аккаунта
-        accusative: Сессию аккаунтаы
-      task:
-        one: Задание
-        few: Задания
-        many: Заданий
-        countless: Задания
-        accusative: Задание
-      vk_identity:
-        one: ВКонтакте аккаунта
-        few: ВКонтакте аккаунта
-        many: ВКонтакте аккаунта
-        countless: ВКонтакте аккаунта
-        accusative: ВКонтакте аккаунта
-      work_experience:
-        one: Профессиональный опыт
-        few: Профессиональных опыта
-        many: Профессиональный опытов
-        countless: Профессиональный опыт
-        accusative: Профессиональный опыт
+        accusative: Сессию аккаунта
+      event:
+        one: Мероприятия
+        few: Мероприятия
+        many: Мероприятий
+        countless: Мероприятия
+        accusative: Мероприятие
+      event_date:
+        one: Даты мероприятия
+        few: Дат мероприятия
+        many: Дат мероприятия
+        countless: Даты мероприятия
+        accusative: Дату мероприятия
+      style:
+        one: Стили
+        few: Стилей
+        many: Стилей
+        countless: Стили
+        accusative: Стиля
+      performance:
+        one: Номера
+        few: Номеров
+        many: Номеров
+        countless: Номера
+        accusative: Номера
+      nomination:
+        one: Номинации
+        few: Номинации
+        many: Номинаций
+        countless: Номинации
+        accusative: Номинации
+      collective:
+        one: Коллективы
+        few: Коллектива
+        many: Коллективов
+        countless: Коллективы
+        accusative: Коллектива
+      performance_format:
+        one: Формат
+        few: Форматы
+        many: Форматов
+        countless: Форматы
+        accusative: Формата
     attributes:
       accounts:
         email_newsletters: Новостоная рассылка
@@ -220,115 +196,29 @@ ru:
           diploma: Диплом
           international_passport: Загран паспорт
           passport: Паспорт
-      education_facility:
-        degree: Тип
-        certificate: Сертификат
-        degrees:
-          additional_professional_education: ДПО
-          higher_education: Высшее образование
-        end_year: Окончание
-        institute_faculty: Факультет
-        institute_speciality: Специальность
-        institute_title: Учебное заведение
-        organization_course: Курс
-        organization_title: Учебная организация или ресурс
-        position: Позиция
-        start_year: Начало обучения
-        student_now: Еще учусь
-      email_identities:
-        encrypted_password: Шифрованный пароль
-        password: Пароль
-        reset_password_token: Токен для сброса пароля
-        last_time_updated: Пароль последний раз обновлялся
-      notification:
-      offline_form:
-        edit_link: Ссылка на заполнение заявки
-        registration_place: Место регистрации
-        country_of_residence: Страна проживания
-        region_of_residence: Регион проживания
-        city_of_residence: Название населенного пункта
-        known_about_from: Как вы узнали про нас
-        social_link: Ссылка на любую вашу соцсеть
-        international_passport_in_process: В процессе получения. Загружу позже
-        submitted: Отправлена
-        portfolio: Портфолио
-        current_step: Текущий шаг в форме заявки
-        max_step: Максимальный шаг в форме заявки
-        passport: Паспорт
-        international_passport: Заграничный паспорт
-        diploma: Диплом о высшем образовании
-        status: Статус заполнения заявки
-        formal_assessment_status: ФО, статус
-        formal_assessment_expert: ФО, эксперт
-        meaningful_assessment_status: СО, статус
-        meaningful_assessment_details: СО, детально
-        statuses:
-          in_progress: Заполняется
-          on_review: Отправлена
-          soft_checked: Прошла формальную проверку
-          hard_checked: Прошла проверку
-          interview: Назначено интервью
-          test_assigned: Назначен тест
-          task_assigned: Назначено задание
-          declined: Отклонена
-          accepted: Принята
-        full_name: ФИО
-        video_interview_url: Ссылка на видеоинтервью
-      profile:
-        speciality: Специальность
-        published_for_hr: Опубликовать анкету для HR
-#        publicly_available: Публичный доступ к профилю
-      offline/formal_assessment:
-        assessment_comment: Причина отклонения # Комментарий к проверке # fow now used only for decline reason comment
-        assessment_result: Результат проверки
-        assessment_results:
-          assigned: на проверке
-          passed: проходит
-          declined: отклонена
-        expert: Эксперт
-        formal_assessment_expert: Эксперт по формальной проверке
-        offline_form: Заявка ID
-      offline/meaningful_assessment:
-        video_interview_result: Оценка видеоинтервью
-        video_interview_assessment: Компетенции оценки по видеоинтервью
-        portfolio_result: Оценка портфолио
-        portfolio_assessment: Компетенции оценки по портфолио
-        recommendation: Рекомендация
-        meaningful_assessment_expert: Эксперт по содержательной проверке
-        offline_form: Заявка ID
-        grade_status_human: Статус проверки
-      task:
-        link: Ссылка на StartExam
-        statuses:
-          appointed: Назначено
-          fulfilling: Выполняется
-          attended: Пройдено
-          verified: Проверено
-        type: Вид
-        types:
-          test: Тест
-          interview: Интервью
-        max_score: Максимальный балл
-        score: Набрано баллов
-      work_experience:
-        position: Позиция
-        company_title: Компания или организация
-        position_title: Позиция
-        start_year_month: Начало работы
-        end_year_month: Окончание
-        up_to_present_time: По настоящий момент
-        recommendation: У меня есть рекомендация
-        recommender_name: Кто вас может порекомендовать
-        recommender_contact: Телефон или почта
-        city_of_work: Название населенного пункта, где вы работаете
-        employer_name: Фамилия и имя
-        employer_email: Email
-        employer_phone: Телефон
       event:
+        event_type: Тип мероприятия
         event_types:
           festival: Фестиваль
           contest: Конкурс
+        event_dates: Даты мероприятия
+      event_date:
+        event_title: Название мероприятия
+        event_date: Дата
+        event: Мероприятие
+      style:
+        comment: Комментарий
       performance:
+        nomination_title: Название номинации
+        collective_title: Коллектив
+        collective: Коллектив
+        age_from: Возраст от
+        age_to: Возраст до
+        style: Стиль
+        choreographer_full_name: Хореограф
+        participants_count: Количество участников
+        from_dot: С точки
+        event_date: Дата мероприятия
         status:
           one: Статус
         statuses:
@@ -336,6 +226,20 @@ ru:
           confirmed: Подтверждено
           paid: Оплачено
           arrived: Приехали
+      nomination:
+        event_date: Дата мероприятия
+        event: Мероприятие
+        styles: Стили
+        performance_format: Формат
+        age_from: Возраст от
+        age_to: Возраст до
+      collective:
+        city: Город
+        head_full_name: Руководитель
+        level: Уровень коллектива
+      performance_format:
+        participants_count_from: Количество участников от
+        participants_count_to: Количество участников до
     errors:
       base:
         blank: не может быть пустым
