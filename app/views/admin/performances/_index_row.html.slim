@@ -1,8 +1,10 @@
 = row.column :title
 = row.column :nomination_title do
   - if record.nominations_count > 1
-    span.ui.small.basic.red.label
-      = record.nomination_title
+    - record.nominations.each do |nomination|
+      span.ui.small.basic.red.label
+        = link_to edit_admin_nomination_url(nomination) do
+          = nomination.title
   - elsif record.nominations_count == 1
     span.ui.small.basic.green.label
       = record.nomination_title

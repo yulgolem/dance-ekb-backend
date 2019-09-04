@@ -32,11 +32,17 @@ class Performance < ActiveRecord::Base
   }
 
   CONFIRMED_STATUSES = [
-      :confirmed,
+    :confirmed,
   ]
 
-  scope :by_age_from, ->(nomination) { where("age_from >= ?", nomination.age_from) }
-  scope :by_age_to, ->(nomination) { where("age_to <= ?", nomination.age_to) }
+  scope :by_age_from, ->(nomination) {
+                        where("age_from >= ?", nomination.age_from)
+                          .where("age_from <= ?", nomination.age_to)
+                      }
+  scope :by_age_to, ->(nomination) {
+                      where("age_to <= ?", nomination.age_to)
+                        .where("age_to >= ?", nomination.age_from)
+                    }
   scope :by_format_from, ->(nomination) { where("participants_count >= ?", nomination.performance_format.participants_count_from) }
   scope :by_format_to, ->(nomination) { where("participants_count <= ?", nomination.performance_format.participants_count_to || 999) }
   scope :by_style, ->(nomination) { where(style_id: nomination.styles.pluck(:id)) }
@@ -49,7 +55,7 @@ class Performance < ActiveRecord::Base
                             .by_style(nomination)
                         }
 
-  scope :confirmed, -> { where(status: Performance.statuses.values_at(*CONFIRMED_STATUSES) ) }
+  scope :confirmed, -> { where(status: Performance.statuses.values_at(*CONFIRMED_STATUSES)) }
 
   def published?
     true
@@ -65,5 +71,9 @@ class Performance < ActiveRecord::Base
 
   def nomination_ids
     ::BindPerformanceService.nomination_ids_for_performance(self)
+  end
+
+  def nominations
+    Nomination.where(id: nomination_ids)
   end
 end
