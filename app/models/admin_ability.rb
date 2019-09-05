@@ -10,6 +10,7 @@ class AdminAbility
         Nomination,
         Performance,
         PerformanceFormat,
+        PerformanceSchedule,
     ]
 
     if admin.presence && admin.roles.include?("admin")

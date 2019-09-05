@@ -7,6 +7,8 @@
 //= require cocoon
 //= require calendar
 //= require jquery.tablesort.min
+//= require best_in_place
+
 // require simplemde.min
 // require inline-attachment
 // require codemirror-4.inline-attachment

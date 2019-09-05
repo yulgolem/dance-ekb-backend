@@ -29,6 +29,9 @@ gem "puma"
 gem "sidekiq"
 gem "sidekiq-history"
 
+gem 'ranked-model'
+gem 'best_in_place', '~> 3.0.1'
+
 gem "cancancan"
 gem "devise"
 gem "jwt"

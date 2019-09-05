@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     performances
     styles
     performance_formats
+    performance_schedules
   ]
 
   namespace :admin do

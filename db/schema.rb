@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_155343) do
+ActiveRecord::Schema.define(version: 2019_09_05_040630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(version: 2019_09_04_155343) do
     t.integer "participants_count_to"
   end
 
+  create_table "performance_schedules", force: :cascade do |t|
+    t.integer "priority"
+    t.bigint "nomination_id", null: false
+    t.bigint "performance_id", null: false
+    t.string "comment"
+    t.index ["nomination_id"], name: "index_performance_schedules_on_nomination_id"
+    t.index ["performance_id"], name: "index_performance_schedules_on_performance_id"
+  end
+
   create_table "performances", force: :cascade do |t|
     t.bigint "collective_id"
     t.bigint "event_date_id"
@@ -110,6 +119,8 @@ ActiveRecord::Schema.define(version: 2019_09_04_155343) do
   add_foreign_key "nomination_styles", "styles"
   add_foreign_key "nominations", "event_dates"
   add_foreign_key "nominations", "performance_formats"
+  add_foreign_key "performance_schedules", "nominations"
+  add_foreign_key "performance_schedules", "performances"
   add_foreign_key "performances", "collectives"
   add_foreign_key "performances", "event_dates"
   add_foreign_key "performances", "nominations"

@@ -28,8 +28,8 @@ module ResourceUrlsConcern
     url_for(options.merge(controller: controller_path, action: :new))
   end
 
-  def collection_url
-    url_for(controller: controller_path, action: :index)
+  def collection_url(options = {})
+    url_for(options.merge(controller: controller_path, action: :index))
   end
 
   def custom_resource_url(resource, action)

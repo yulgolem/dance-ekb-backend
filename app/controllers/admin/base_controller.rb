@@ -27,6 +27,9 @@ class Admin::BaseController < AdminController
     @resources = @resources.page(page).per(per_page)
     @query = query_class.new params
     @resources = @query.scope @resources
+    if params[:sort_mode]
+      @resources = @resources.reorder(:priority)
+    end
   end
 
   def show

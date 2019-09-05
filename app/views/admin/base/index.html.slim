@@ -1,4 +1,5 @@
 - collection = present_collection(@resources)
+- sortable = resource_class.respond_to?(:rankers) && resource_class.rankers.present?
 - params.permit!
 
 h2.ui.center.aligned.header
@@ -10,6 +11,15 @@ h2.ui.center.aligned.header
       = link_to new_resource_url(*params), class: 'ui small basic button' do
         i.plus.icon
         span = t('table.actions.create')
+  - if sortable
+    - if params[:sort_mode]
+      = link_to collection_url, class: 'ui small basic button' do
+        i.table.icon
+        span = t('.mode_normal')
+    - else
+      = link_to collection_url(sort_mode: 1, offline: params[:offline]), class: 'ui small basic button' do
+        i.move.icon
+        span = t('.mode_sorting')
 
   = render('index_header') if lookup_context.exists?('index_header', lookup_context.prefixes, true)
   - if lookup_context.exists?("query_form", ["admin/#{resource_class.model_name.collection}"], true)
@@ -27,7 +37,20 @@ h2.ui.center.aligned.header
   /         = scope.link class: 'list-group-item',
   /           active_class: 'active'
 
+  - i = 0
   = table_for(collection, class: resource_class, query: @query, presenter: AdminTablePresenter ) do |row, record|
+    - if sortable
+      - if params[:sort_mode]
+        = row.column :index do
+          = i += 1
+      = row.column :priority do
+        - if params[:sort_mode]
+          = best_in_place record, :priority,
+                  url: polymorphic_path([:admin, record], bip: 1),
+                  class: 'priority-field',
+                  inner_class: 'priority-input'
+        - else
+          = record.priority
     - unless @hide_index_id
       = row.column :id do
         - if resource_class.method_defined?(:published?)
@@ -63,3 +86,17 @@ h2.ui.center.aligned.header
 
     = render 'index_row', row: row, record: record
   = paginate @resources
+
+- if params[:sort_mode]
+  javascript:
+      window.enableSort = true;
+      $(document).ready(function () {
+          $(".best_in_place").best_in_place();
+          $("a[data-remote]").on("ajax:beforeSend", function () {
+              $(this).addClass('loading');
+          }).on("ajax:complete", function () {
+              $(this).removeClass('loading');
+          }).on("ajax:error", function (e, xhr, status, error) {
+              alert(error);
+          });
+      })
