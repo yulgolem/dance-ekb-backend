@@ -4,8 +4,8 @@
     sortable_groups.sortable
       cursor: '-webkit-grabbing'
       axis: 'y'
-      handle: '> .move'
-      items: '> .nested-fields'
+      handle: '.move'
+      items: '.nested-fields'
       sort: (e, ui) ->
         ui.item.addClass('dragged-item')
       stop: (e, ui) ->
@@ -14,18 +14,35 @@
         ui.item.effect('highlight', {}, 1000)
       update: (e, ui) ->
         $(this).children(".nested-fields").each (index) ->
-          $(this).find('> .field > input.position-input').val(index + 1)
-    sortable_groups.on('cocoon:after-insert', (event, element) ->
-      $newNode = $(element)
-      $newNode.closest('.nested-sortable').find("> .nested-fields > .field > input.position-input").each (index) ->
-        $(this).val(index + 1)
+          $(this).find('input.priority-input').val(index + 1)
+
+    sortable_groups.on('cocoon:after-insert', ->
+      $('.nested-sortable').children(".nested-fields").each (index) ->
+        $(this).find('input.priority-input').val(index + 1)
     )
+
     sortable_groups.addClass('initialized')
 
 $ ->
   initNestedSortable()
-  if $('.table-sortable').length
-    # Return a helper with preserved width of cells
+
+  $('.collapse-control').click ->
+    console.log('click')
+    $('.is-collapsible').toggle()
+
+  #  if $('.nested-sortable').length
+  #    dragging = false
+  #    $(".move").mousedown ->
+  #      $container = $(this).closest(".nested-sortable")
+  #      dragging = true
+  #      $container.css(overflow: 'auto')
+  #    $(document).mouseup ->
+  #      if dragging
+  #        dragging = false
+  #        $(".nested-sortable").css(overflow: 'visible')
+
+  if $('.table-sortable').length && window.enableSort
+# Return a helper with preserved width of cells
     fixHelper = (e, ui) ->
       ui.children().each ->
         $(this).width $(this).width()
@@ -50,6 +67,7 @@ $ ->
         console.log ui.item
         position = ui.item.index()
         console.log(item_id, position)
+        $priorityEl = ui.item.find('.priority-field')
         data = {}
         data[resourceType] = {}
         data[resourceType][positionField] = position
@@ -58,4 +76,8 @@ $ ->
           url: window.location.pathname+'/'+item_id+'.json?sort=1'
           dataType: 'json'
           data: data
+        ).done(
+          (data) =>
+            $priorityEl.replaceWith('<span class="priority-field">' + data.priority + '</span>')
         )
+
