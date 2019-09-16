@@ -168,6 +168,18 @@ ru:
         many: Форматов
         countless: Форматы
         accusative: Формата
+      performance_schedule:
+        one: Программа выступлений
+        few: Программ выступлений
+        many: Программ выступлений
+        countless: Программы выступлений
+        accusative: Программу выступлений
+      performance_schedule_item:
+        one: Номер программы
+        few: Номеров программы
+        many: Номеров программы
+        countless: Номера программы
+        accusative: Номера программы
     attributes:
       accounts:
         email_newsletters: Новостоная рассылка
@@ -226,6 +238,11 @@ ru:
           confirmed: Подтверждено
           paid: Оплачено
           arrived: Приехали
+      performance_schedule:
+        event_date: Дата программы
+        performance_schedule_items: Номера программы
+      performance_schedule_item:
+        performance: Номер и коллектив
       nomination:
         event_date: Дата мероприятия
         event: Мероприятие

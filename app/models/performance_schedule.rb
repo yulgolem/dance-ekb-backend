@@ -1,21 +1,19 @@
 # create_table :performance_schedules, force: :cascade do |t|
-#   t.integer :priority
-#   t.bigint :nomination_id, null: false
-#   t.bigint :performance_id, null: false
+#   t.bigint :event_date_id, null: false
+#   t.string :title
 #   t.string :comment
-#   t.index [:nomination_id], name: :index_performance_schedules_on_nomination_id
-#   t.index [:performance_id], name: :index_performance_schedules_on_performance_id
+#   t.datetime :created_at, null: false
+#   t.datetime :updated_at, null: false
+#   t.index [:event_date_id], name: :index_performance_schedules_on_event_date_id
 # end
 
 class PerformanceSchedule < ActiveRecord::Base
 
-  include Concerns::Ranked
+  has_many :performance_schedule_items
+  accepts_nested_attributes_for :performance_schedule_items
 
-  belongs_to :nomination
-  belongs_to :performance
+  belongs_to :event_date
 
-  def title
-    performance.title
-  end
+  has_many :performances, through: :performance_schedule_items
 
 end

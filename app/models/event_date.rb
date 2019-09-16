@@ -9,6 +9,7 @@
 class EventDate < ActiveRecord::Base
 
   belongs_to :event
+  has_one :performance_schedule
 
   def published?
     true

@@ -1,6 +1,6 @@
 - no_actions ||= false
 - sortable ||= false
-- order ||= sortable ? :position : false
+- order = :priority if sortable
 - collection ||= f.object.send(association)
 - partial ||= "#{association.to_s.singularize}_fields"
 - label ||= f.object.class.human_attribute_name association
@@ -15,21 +15,18 @@
 div id=association class=klasses
   - args = [association]
   - if order
-    - args << collection.sort_by { |x| x.send(order) || 1000 }
-  - else
-    - args << collection
+    - if f.object.persisted? && f.object.valid?
+      - args << f.object.send(association).order(order)
+    - else
+      - args << f.object.send(association).sort_by(&order)
   = f.simple_fields_for *args do |nested_f|
     = render partial, f: nested_f, parent_f: f
   - unless no_actions
     .links
-      = link_to_add_association f, association, class: 'ui tiny basic button nested-add-link', partial: partial do
+      = link_to_add_association f, association, class: 'ui tiny basic button nested-add-link', partial: partial, render_options: {locals: {default_template: true, parent_f: f}} do
         i.icon.plus
         '
         = add_button_text
-      / .ui.tiny.basic.button.paste-form class = "#{klass.model_name.collection[/(\w*$)/]}"
-      /   i.paste.icon
-      /   '
-      /   = paste_text
       = yield if block_given?
 br
 - if sortable

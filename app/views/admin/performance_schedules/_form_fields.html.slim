@@ -1,0 +1,11 @@
+.row
+  .sixteen.wide.mobile.eight.wide.computer.column
+    .two.fields
+      = f.input :title
+      = f.input :comment
+    .two.fields
+      = f.association :event_date, as: :select,
+        input_html: {class: 'ui search dropdown'},
+        collection: EventDate.all
+
+    = render 'admin/nested_association', f: f, association: :performance_schedule_items, sortable: true
