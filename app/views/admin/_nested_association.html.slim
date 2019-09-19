@@ -1,6 +1,6 @@
 - no_actions ||= false
 - sortable ||= false
-- order = :priority if sortable
+- order = sortable ? (f.object.send(association).respond_to?(:order_fields) ? f.object.send(association).order_fields : :priority) : nil
 - collection ||= f.object.send(association)
 - partial ||= "#{association.to_s.singularize}_fields"
 - label ||= f.object.class.human_attribute_name association

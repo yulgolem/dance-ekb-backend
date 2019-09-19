@@ -16,7 +16,14 @@ class PerformanceScheduleItem < ActiveRecord::Base
   belongs_to :performance
   belongs_to :nomination, optional: true
 
-  include Concerns::Ranked
+  include RankedModel
+  ranks :priority, with_same: [:nomination_id]
+
+  def self.order_fields
+    [:nomination_id, :priority]
+  end
+
+  before_validation :set_default_priority, on: :create # ensure that this callback prepends before_save from RankedModel
 
   def set_default_priority
     self.priority_position = :last
