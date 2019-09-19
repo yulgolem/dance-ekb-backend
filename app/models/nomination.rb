@@ -21,6 +21,7 @@ class Nomination < ActiveRecord::Base
   has_many :nomination_styles, dependent: :destroy, autosave: true
   has_many :styles, through: :nomination_styles
 
+  has_many :performance_schedule_items
 
   def published?
     true

@@ -4,9 +4,18 @@
       i.red.trash.icon
   i.small.content.icon.move.move-nested-icon
   .ui.middle.aligned.stackable.grid
-    .ten.wide.column
+    .eight.wide.column
       .dummy style='margin-bottom: 20px;'
         = f.association :performance, as: :select,
                 input_html: {class: 'ui search dropdown'},
                 collection: Performance.all
-      = f.input :priority, as: :hidden, input_html: {class: 'priority-input'}
+    .eight.wide.column
+      - if f.object.persisted?
+        .ui.label.gray
+          | "#{f.object.nomination.title}"
+    = f.input :priority, as: :hidden, input_html: {class: 'priority-input'}
+
+javascript:
+    $('.ui.dropdown').dropdown(
+        fullTextSearch:true;
+    )

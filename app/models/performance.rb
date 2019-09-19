@@ -73,6 +73,10 @@ class Performance < ActiveRecord::Base
     ::BindPerformanceService.nomination_ids_for_performance(self)
   end
 
+  def nomination_id
+    nomination_ids.count == 1 ? nomination_ids.last : nil
+  end
+
   def nominations
     Nomination.where(id: nomination_ids)
   end

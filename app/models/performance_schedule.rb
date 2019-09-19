@@ -10,7 +10,7 @@
 class PerformanceSchedule < ActiveRecord::Base
 
   has_many :performance_schedule_items
-  accepts_nested_attributes_for :performance_schedule_items
+  accepts_nested_attributes_for :performance_schedule_items, allow_destroy: true
 
   belongs_to :event_date
 
