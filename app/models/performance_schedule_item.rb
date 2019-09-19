@@ -17,14 +17,12 @@ class PerformanceScheduleItem < ActiveRecord::Base
   belongs_to :nomination, optional: true
 
   include Concerns::Ranked
-  ranks :priority, with_same: [:nomination_id]
 
   def set_default_priority
     self.priority_position = :last
   end
 
   def bind_nomination
-    binding.pry
     self.nomination_id = performance.nomination_id
   end
 
