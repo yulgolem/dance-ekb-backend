@@ -17,20 +17,26 @@ class PerformanceScheduleItem < ActiveRecord::Base
   belongs_to :nomination, optional: true
 
   include RankedModel
-  ranks :priority, with_same: [:nomination_id]
+  ranks :priority
+  # use priority_rank  on a model to find a distinct rank
 
   def self.order_fields
-    [:nomination_id, :priority]
+    [:priority]
   end
 
   before_validation :set_default_priority, on: :create # ensure that this callback prepends before_save from RankedModel
 
   def set_default_priority
+    # ToDo Override on nomination regeneration
     self.priority_position = :last
   end
 
   def bind_nomination
     self.nomination_id = performance.nomination_id
+  end
+
+  def calculated_row_order_position
+    self.siblings.where('priority < ?', self.priority).count + 1
   end
 
 end
