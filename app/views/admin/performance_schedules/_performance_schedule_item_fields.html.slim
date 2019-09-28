@@ -8,7 +8,7 @@
       .dummy style='margin-bottom: 20px;'
         = f.association :performance, as: :select,
                 input_html: {class: 'ui search dropdown'},
-                collection: Performance.all
+                collection: Performance.all.map{ |performance| ["#{performance.title} / #{performance.collective.full_title}", performance.id] }
     .eight.wide.column
       - if f.object.persisted?
         .ui.label.gray

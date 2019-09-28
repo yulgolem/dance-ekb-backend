@@ -4,7 +4,7 @@
       = f.input :title
       = f.association :collective, as: :select,
               input_html: {class: 'ui search dropdown'},
-              collection: Collective.all
+              collection: Collective.all.map{ |collective| [collective.full_title, collective.id] }
     .two.fields
       = f.input :age_from
       = f.input :age_to

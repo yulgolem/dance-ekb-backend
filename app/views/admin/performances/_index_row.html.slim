@@ -10,4 +10,4 @@
       = link_to edit_admin_nomination_url(record.nominations.first), target: '_blank' do
         = record.nominations.first.title
 = row.column :collective_title do
-  = record.collective.title
+  = record.collective.full_title

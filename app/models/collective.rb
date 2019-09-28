@@ -10,4 +10,8 @@ class Collective < ActiveRecord::Base
   def published?
     true
   end
+
+  def full_title
+    "#{title} / #{city} / #{head_full_name}"
+  end
 end
