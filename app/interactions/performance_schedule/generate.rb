@@ -7,6 +7,8 @@ class PerformanceSchedule
       nominations.each do |nomination|
         PerformanceSchedule::GenerateFromNomination.execute(nomination: nomination)
       end
+
+      PerformanceSchedule::CheckScheduleOrder
     end
   end
 end

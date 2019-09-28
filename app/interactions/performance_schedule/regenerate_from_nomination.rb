@@ -20,6 +20,8 @@ class PerformanceSchedule
       nomination_items.reverse_each do |nomination_item|
         nomination_item.update priority_position: first_nomination_rank
       end
+
+      PerformanceSchedule::CheckScheduleOrder
     end
 
   end
