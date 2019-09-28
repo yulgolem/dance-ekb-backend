@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     admin_resources.each do |resource_name|
       resources resource_name
     end
+
+    get 'nominations/:id/regenerate_schedule', to: 'nominations#regenerate_schedule', as: :regenerate_nomination_schedule
   end
 
   # api_resources = admin_resources

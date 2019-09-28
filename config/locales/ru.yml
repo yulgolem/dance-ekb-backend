@@ -250,6 +250,8 @@ ru:
         performance_format: Формат
         age_from: Возраст от
         age_to: Возраст до
+        performances_in_schedule: Номеров / В программе
+        regenerate: Перегенерировать расписание
       collective:
         city: Город
         head_full_name: Руководитель

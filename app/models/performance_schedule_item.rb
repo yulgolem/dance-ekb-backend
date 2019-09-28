@@ -16,6 +16,8 @@ class PerformanceScheduleItem < ActiveRecord::Base
   belongs_to :performance
   belongs_to :nomination, optional: true
 
+  validates :performance_id, presence: true, uniqueness: true
+
   include RankedModel
   ranks :priority
   # use priority_rank  on a model to find a distinct rank

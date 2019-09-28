@@ -3,3 +3,8 @@
   = [record.age_from, record.age_to].join('/')
 = row.column :event_date do
   = record.event_date&.event_date&.strftime('%d-%m-%Y')
+= row.column :performances_in_schedule do
+  = record.performances_in_schedule
+= row.column :regenerate do
+  = link_to admin_regenerate_nomination_schedule_path(record), class: 'ui blue button' do
+    | Перегенерировать
