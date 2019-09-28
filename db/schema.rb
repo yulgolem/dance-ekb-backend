@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_19_133023) do
+ActiveRecord::Schema.define(version: 2019_09_28_110340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_133023) do
     t.bigint "event_id"
     t.bigint "event_date_id"
     t.bigint "performance_format_id"
+    t.text "levels", default: [], array: true
     t.index ["event_date_id"], name: "index_nominations_on_event_date_id"
     t.index ["event_id"], name: "index_nominations_on_event_id"
     t.index ["performance_format_id"], name: "index_nominations_on_performance_format_id"

@@ -256,6 +256,7 @@ ru:
         city: Город
         head_full_name: Руководитель
         level: Уровень коллектива
+        level_text: Уровень коллектива
       performance_format:
         participants_count_from: Количество участников от
         participants_count_to: Количество участников до

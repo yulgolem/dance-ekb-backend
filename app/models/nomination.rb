@@ -5,6 +5,7 @@
 #   t.bigint :event_id
 #   t.bigint :event_date_id
 #   t.bigint :performance_format_id
+#   t.text :levels, default: [], array: true
 #   t.index [:event_date_id], name: :index_nominations_on_event_date_id
 #   t.index [:event_id], name: :index_nominations_on_event_id
 #   t.index [:performance_format_id], name: :index_nominations_on_performance_format_id
@@ -25,5 +26,9 @@ class Nomination < ActiveRecord::Base
 
   def published?
     true
+  end
+
+  def levels=(vals)
+    self['levels'] = (vals || []).reject(&:blank?)
   end
 end

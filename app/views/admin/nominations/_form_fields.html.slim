@@ -17,6 +17,9 @@
     .two.fields
       = f.input :age_from
       = f.input :age_to
+    .two.fields
+      - levels_collection = Collective.pluck(:level).compact.uniq
+      = f.input :levels, collection: levels_collection, input_html: {multiple: true}
 
 
 - if f.object.persisted?
@@ -24,3 +27,4 @@
 
 javascript:
   $('#nomination_style_ids').selectize({plugins: ['remove_button', 'drag_drop']});
+  $('#nomination_levels').selectize({plugins: ['remove_button', 'drag_drop']});

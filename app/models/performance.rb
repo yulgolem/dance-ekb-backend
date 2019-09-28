@@ -46,6 +46,7 @@ class Performance < ActiveRecord::Base
   scope :by_format_from, ->(nomination) { where("participants_count >= ?", nomination.performance_format.participants_count_from) }
   scope :by_format_to, ->(nomination) { where("participants_count <= ?", nomination.performance_format.participants_count_to || 999) }
   scope :by_style, ->(nomination) { where(style_id: nomination.styles.pluck(:id)) }
+  scope :by_level, ->(nomination) { joins(:collective).where("collectives.level IS NULL OR collectives.level IN (?)", nomination.levels) }
 
   scope :by_nomination, ->(nomination) {
                           by_age_from(nomination)
@@ -53,6 +54,7 @@ class Performance < ActiveRecord::Base
                             .by_format_from(nomination)
                             .by_format_to(nomination)
                             .by_style(nomination)
+                            .by_level(nomination)
                         }
 
   scope :confirmed, -> { where(status: Performance.statuses.values_at(*CONFIRMED_STATUSES)) }

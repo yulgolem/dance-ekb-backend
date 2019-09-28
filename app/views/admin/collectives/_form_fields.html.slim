@@ -5,4 +5,8 @@
       = f.input :head_full_name, as: :text, input_html: { rows: 4 }
     .two.fields
       = f.input :city
-      = f.input :level
+      - levels_collection = Collective.pluck(:level).compact.uniq
+      = f.input :level, collection: levels_collection, input_html: {class: 'selectize-single-create'}
+
+javascript:
+  initSelectize()

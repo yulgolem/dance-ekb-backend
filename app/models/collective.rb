@@ -12,6 +12,6 @@ class Collective < ActiveRecord::Base
   end
 
   def full_title
-    "#{title} / #{city} / #{head_full_name}"
+    [title, city, head_full_name, level].join("/")
   end
 end
