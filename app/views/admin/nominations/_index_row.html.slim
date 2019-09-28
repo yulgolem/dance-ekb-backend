@@ -6,5 +6,7 @@
 = row.column :performances_in_schedule do
   = record.performances_in_schedule
 = row.column :regenerate do
-  = link_to admin_regenerate_nomination_schedule_path(record), class: 'ui blue button' do
-    | Перегенерировать
+  - performance_schedule = Performance.where(event_date_id: record.event_date_id).first
+  - if performance_schedule
+    = link_to admin_regenerate_nomination_schedule_path(record), class: 'ui blue button' do
+      | Перегенерировать

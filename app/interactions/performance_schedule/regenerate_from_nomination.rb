@@ -10,7 +10,7 @@ class PerformanceSchedule
     def run
       ranked_performance_items = PerformanceScheduleItem.rank(:priority)
       nomination_items = ranked_performance_items.where(nomination_id: nomination.id)
-      first_nomination_rank = nomination_items.first&.priority_rank || :first
+      first_nomination_rank = nomination_items.first&.priority_rank || :last
 
       nomination_items.destroy_all
 
