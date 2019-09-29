@@ -9,10 +9,13 @@
         = f.association :performance, as: :select,
                 input_html: {class: 'ui search dropdown'},
                 collection: Performance.all.map{ |performance| ["#{performance.title} / #{performance.collective.full_title}", performance.id] }
-    .eight.wide.column
+    .six.wide.column
       - if f.object.persisted?
         .ui.label.gray
           | "#{f.object.nomination.title}"
+    .two.wide.column
+      - if f.object.persisted? && f.object.have_same_collective_in_siblings?
+        i.red.huge.exclamation.triangle.icon
     = f.input :priority, as: :hidden, input_html: {class: 'priority-input'}
 
 javascript:

@@ -19,5 +19,10 @@ class PerformanceSchedule
       end
     end
 
+    def spare_members(a, b)
+      a_rank = a.position_rank
+      b_rank = b.position_rank
+    end
+
   end
 end

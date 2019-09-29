@@ -21,7 +21,7 @@ class PerformanceSchedule
         nomination_item.update priority_position: first_nomination_rank
       end
 
-      PerformanceSchedule::CheckScheduleOrder
+      PerformanceSchedule::CheckSchedule
     end
 
   end

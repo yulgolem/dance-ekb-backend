@@ -41,4 +41,36 @@ class PerformanceScheduleItem < ActiveRecord::Base
     self.siblings.where('priority < ?', self.priority).count + 1
   end
 
+  def prior_siblings
+    PerformanceScheduleItem
+        .where(performance_schedule: performance_schedule)
+        .where('priority < ?', priority)
+        .order(:priority)
+        .last(3)
+  end
+
+  def next_siblings
+    PerformanceScheduleItem
+        .where(performance_schedule: performance_schedule)
+        .where('priority > ?', priority)
+        .order(:priority)
+        .limit(3)
+  end
+
+  def prior_sibling_same_collective?
+    collective_id = performance.collective_id
+    prior_sibling_collective_ids = prior_siblings.map{|item| item.performance.collective_id}
+    prior_sibling_collective_ids.include?(collective_id)
+  end
+
+  def next_sibling_same_collective?
+    collective_id = performance.collective_id
+    next_sibling_collective_ids = next_siblings.map{|item| item.performance.collective_id}
+    next_sibling_collective_ids.include?(collective_id)
+  end
+
+  def have_same_collective_in_siblings?
+    prior_sibling_same_collective? || next_sibling_same_collective?
+  end
+
 end

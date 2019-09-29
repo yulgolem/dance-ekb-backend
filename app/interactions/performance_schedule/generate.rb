@@ -8,7 +8,7 @@ class PerformanceSchedule
         PerformanceSchedule::GenerateFromNomination.execute(nomination: nomination)
       end
 
-      PerformanceSchedule::CheckScheduleOrder
+      PerformanceSchedule::CheckSchedule
     end
   end
 end
